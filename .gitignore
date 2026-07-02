@@ -1,0 +1,51 @@
+# ================================================================
+# DentiSoft 1.0 — .gitignore
+# ================================================================
+
+# Archivos de configuración sensible
+.env
+.env.local
+.env.*.local
+
+# Composer
+vendor/
+composer.phar
+composer-setup.php
+
+# Logs
+logs/
+storage/logs/
+*.log
+
+# Cache
+tmp/
+cache/
+.cache/
+storage/cache/
+storage/sessions/
+runtime_sessions/
+sess_*
+*.tmp
+
+# Uploads (archivos de pacientes)
+assets/uploads/fotos/
+assets/uploads/radiografias/
+storage/uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# PHP
+.php_cs.cache
+
+# Temporal
+node_modules/
+dist/
+build/
+tests/manual/
+storage/tools/

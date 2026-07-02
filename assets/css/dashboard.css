@@ -1,0 +1,289 @@
+/* ============================================================
+   DentiSoft 1.0 — Dashboard Styles
+   ============================================================ */
+
+/* ─── Dashboard Hero ───────────────────────────────────────── */
+.dashboard-hero {
+    position: relative;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: var(--border-radius-lg);
+    padding: 34px 36px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-glow), var(--shadow-sm);
+    overflow: hidden;
+}
+.dashboard-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.14) 0%, transparent 22%),
+                      radial-gradient(circle at 80% 30%, rgba(8, 145, 178, 0.12) 0%, transparent 18%),
+                      radial-gradient(circle at 50% 90%, rgba(99, 102, 241, 0.08) 0%, transparent 25%);
+    pointer-events: none;
+}
+.hero-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.hero-overline {
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--accent-light);
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+}
+.hero-title {
+    font-size: clamp(2rem, 2.4vw, 2.8rem);
+    line-height: 1.05;
+    margin: 0;
+    color: #f8fafc;
+}
+.hero-text {
+    max-width: 680px;
+    color: rgba(241, 245, 249, 0.82);
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.btn-hero {
+    padding: 12px 24px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border: none;
+    box-shadow: 0 14px 30px rgba(99, 102, 241, 0.18);
+}
+.btn-hero:hover {
+    transform: translateY(-1px);
+}
+.btn-hero-outline {
+    padding: 12px 24px;
+    font-weight: 700;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+.btn-hero-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── KPI Cards ───────────────────────────────────────────── */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.kpi-card {
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(99, 102, 241, 0.14);
+    border-radius: var(--border-radius-lg);
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 16px 16px 0 0;
+}
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(8, 17, 33, 0.35);
+    border-color: rgba(99, 102, 241, 0.22);
+}
+
+.kpi-card.kpi-patients::before  { background: linear-gradient(90deg, #6366f1, #818cf8); }
+.kpi-card.kpi-citas::before     { background: linear-gradient(90deg, #00BFA6, #34d9c3); }
+.kpi-card.kpi-ingresos::before  { background: linear-gradient(90deg, #10b981, #34d399); }
+.kpi-card.kpi-cartera::before   { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+.kpi-info { flex: 1; }
+.kpi-label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+.kpi-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.kpi-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.kpi-sub .up   { color: var(--success); }
+.kpi-sub .down { color: var(--danger); }
+
+.kpi-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+.kpi-patients .kpi-icon  { background: rgba(99, 102, 241, 0.12); color: var(--primary-light); }
+.kpi-citas .kpi-icon     { background: rgba(0, 191, 166, 0.12);  color: var(--accent); }
+.kpi-ingresos .kpi-icon  { background: rgba(16, 185, 129, 0.12); color: var(--success); }
+.kpi-cartera .kpi-icon   { background: rgba(245, 158, 11, 0.12); color: var(--warning); }
+
+/* ─── Dashboard Grid ──────────────────────────────────────── */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.chart-card {
+    background: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(99, 102, 241, 0.14);
+    border-radius: var(--border-radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+.chart-card .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 12px;
+}
+.chart-card .chart-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.chart-card .chart-title i {
+    color: var(--accent);
+}
+
+/* ─── Citas del día ───────────────────────────────────────── */
+.cita-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(148, 163, 184, 0.08);
+    transition: var(--transition);
+}
+.cita-item + .cita-item {
+    margin-top: 12px;
+}
+.cita-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(2px);
+}
+
+.chart-card {
+    box-shadow: var(--shadow-sm);
+}
+
+.cita-hora {
+    min-width: 60px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-light);
+}
+
+.cita-linea {
+    width: 3px;
+    height: 40px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+.cita-linea.confirmada { background: var(--success); }
+.cita-linea.pendiente  { background: var(--warning); }
+.cita-linea.atendida   { background: var(--info); }
+.cita-linea.cancelada  { background: var(--danger); }
+
+.cita-detalle { flex: 1; min-width: 0; }
+.cita-paciente {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f8fafc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cita-motivo {
+    font-size: 0.78rem;
+    color: rgba(241, 245, 249, 0.72);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cita-estado {
+    flex-shrink: 0;
+}
+
+/* ─── Actividad reciente ──────────────────────────────────── */
+.actividad-vacia {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(241, 245, 249, 0.72);
+}
+.actividad-vacia i {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    opacity: 0.3;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .kpi-value {
+        font-size: 1.4rem;
+    }
+}
+@media (max-width: 480px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}

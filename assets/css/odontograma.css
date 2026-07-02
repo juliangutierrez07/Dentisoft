@@ -1,0 +1,904 @@
+:root {
+    --odo-bg: #081028;
+    --odo-card: rgba(17, 28, 68, 0.86);
+    --odo-card-strong: rgba(10, 20, 50, 0.94);
+    --odo-border: rgba(0, 209, 255, 0.15);
+    --odo-cyan: #00d1ff;
+    --odo-blue: #5b5fff;
+    --odo-green: #00e0a4;
+    --odo-text: #f2f7ff;
+    --odo-muted: #90a5cc;
+}
+
+body { background: var(--odo-bg); }
+
+.main-content {
+    background:
+        radial-gradient(circle at 18% 6%, rgba(0, 209, 255, 0.11), transparent 28%),
+        radial-gradient(circle at 88% 0%, rgba(91, 95, 255, 0.14), transparent 24%),
+        linear-gradient(180deg, #081028 0%, #071124 100%);
+}
+
+.odontograma-page {
+    max-width: 1540px;
+    margin: 0 auto;
+    color: var(--odo-text);
+    animation: odoFadeIn .38s ease both;
+}
+
+@keyframes odoFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.odo-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid var(--odo-border);
+    border-radius: 16px;
+    background:
+        linear-gradient(135deg, rgba(17, 28, 68, .94), rgba(8, 16, 40, .82)),
+        radial-gradient(circle at 18% 0%, rgba(0, 224, 164, .12), transparent 30%);
+    box-shadow: 0 26px 72px rgba(0, 0, 0, .30);
+    backdrop-filter: blur(16px);
+}
+
+.odo-patient {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 16px;
+}
+
+.odo-avatar {
+    width: 76px;
+    height: 76px;
+    flex: 0 0 76px;
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    color: #fff;
+    font-size: 1.18rem;
+    font-weight: 850;
+    background: linear-gradient(135deg, var(--odo-green), var(--odo-cyan) 48%, var(--odo-blue));
+    border: 1px solid rgba(255, 255, 255, .14);
+    box-shadow: 0 20px 48px rgba(0, 209, 255, .20);
+}
+
+.odo-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 7px;
+    color: var(--odo-muted);
+    font-size: .78rem;
+    font-weight: 760;
+}
+
+.odo-breadcrumb a {
+    color: var(--odo-cyan);
+    text-decoration: none;
+}
+
+.odo-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.7rem, 2.5vw, 2.45rem);
+    line-height: 1.08;
+    font-weight: 830;
+}
+
+.odo-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 11px;
+}
+
+.odo-hero-meta span {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 11px;
+    border-radius: 10px;
+    color: rgba(242, 247, 255, .84);
+    background: rgba(8, 16, 40, .58);
+    border: 1px solid rgba(144, 165, 204, .14);
+    font-size: .81rem;
+}
+
+.odo-hero-meta i { color: var(--odo-cyan); }
+
+.odo-actions,
+.odo-tool-buttons,
+.odo-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.odo-btn,
+.odo-icon-btn,
+.odo-segmented button,
+.odo-legend-item {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 10px;
+    font-size: .86rem;
+    font-weight: 780;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
+}
+
+.odo-btn {
+    padding: 0 15px;
+    border: 1px solid transparent;
+}
+
+.odo-btn:hover,
+.odo-icon-btn:hover,
+.odo-segmented button:hover,
+.odo-legend-item:hover {
+    transform: translateY(-1px);
+}
+
+.odo-btn-primary {
+    color: #fff;
+    border: 0;
+    background: linear-gradient(135deg, var(--odo-blue), var(--odo-cyan));
+    box-shadow: 0 18px 38px rgba(0, 209, 255, .18);
+}
+
+.odo-btn-primary:hover {
+    color: #fff;
+    box-shadow: 0 22px 46px rgba(0, 209, 255, .26);
+}
+
+.odo-btn-ghost {
+    color: var(--odo-muted);
+    background: rgba(8, 16, 40, .56);
+    border-color: rgba(144, 165, 204, .16);
+}
+
+.odo-btn-ghost:hover {
+    color: #fff;
+    background: rgba(0, 209, 255, .08);
+    border-color: rgba(0, 209, 255, .30);
+}
+
+.odo-btn:disabled,
+.odo-icon-btn:disabled {
+    opacity: .48;
+    pointer-events: none;
+}
+
+.odo-btn.is-loading {
+    position: relative;
+    opacity: .82;
+    box-shadow: 0 22px 48px rgba(0, 209, 255, .24);
+}
+
+.odo-btn.is-loading::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    transform: translateX(-100%);
+    animation: odoSavingSweep 1.15s ease-in-out infinite;
+}
+
+@keyframes odoSavingSweep {
+    to { transform: translateX(100%); }
+}
+
+.odo-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.odo-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 96px;
+    padding: 14px;
+    border: 1px solid rgba(144, 165, 204, .12);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(17, 28, 68, .82), rgba(8, 16, 40, .88));
+    box-shadow: 0 18px 48px rgba(0, 0, 0, .18);
+    overflow: hidden;
+    position: relative;
+}
+
+.odo-stat-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: var(--stat-percent);
+    height: 3px;
+    background: var(--state-color);
+    box-shadow: 0 0 18px var(--state-color);
+}
+
+.odo-stat-card > span {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    color: var(--state-color);
+    background: color-mix(in srgb, var(--state-color) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--state-color) 24%, transparent);
+}
+
+.odo-stat-card strong {
+    display: block;
+    color: #fff;
+    font-size: 1.55rem;
+    line-height: 1;
+}
+
+.odo-stat-card small {
+    display: block;
+    margin-top: 5px;
+    color: var(--odo-muted);
+    font-size: .78rem;
+}
+
+.odo-workspace {
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.odo-side-panel {
+    position: sticky;
+    top: 88px;
+    display: grid;
+    gap: 16px;
+}
+
+.odo-panel,
+.odo-stage-panel {
+    border: 1px solid var(--odo-border);
+    border-radius: 16px;
+    background: linear-gradient(180deg, var(--odo-card), var(--odo-card-strong));
+    box-shadow: 0 24px 66px rgba(0, 0, 0, .24);
+    backdrop-filter: blur(14px);
+}
+
+.odo-panel {
+    padding: 18px;
+}
+
+.odo-panel-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.odo-panel-title > span {
+    width: 39px;
+    height: 39px;
+    flex: 0 0 39px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    color: var(--odo-cyan);
+    background: rgba(0, 209, 255, .08);
+    border: 1px solid rgba(0, 209, 255, .16);
+}
+
+.odo-panel-title h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 790;
+}
+
+.odo-panel-title p {
+    margin: 4px 0 0;
+    color: var(--odo-muted);
+    font-size: .82rem;
+}
+
+.odo-selected-tooth {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    background: rgba(8, 16, 40, .58);
+    border: 1px solid rgba(144, 165, 204, .12);
+}
+
+.odo-selected-number {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 850;
+    background: linear-gradient(135deg, rgba(91, 95, 255, .95), rgba(0, 209, 255, .78));
+}
+
+.odo-selected-tooth span {
+    display: inline-flex;
+    color: var(--odo-cyan);
+    font-size: .76rem;
+    font-weight: 780;
+    text-transform: uppercase;
+}
+
+.odo-selected-tooth strong {
+    display: block;
+    margin-top: 4px;
+    color: #fff;
+    font-size: .98rem;
+}
+
+.odo-detail-list {
+    display: grid;
+    gap: 9px;
+    margin-bottom: 14px;
+}
+
+.odo-detail-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid rgba(144, 165, 204, .08);
+}
+
+.odo-detail-list span {
+    color: var(--odo-muted);
+    font-size: .78rem;
+}
+
+.odo-detail-list strong {
+    max-width: 56%;
+    color: rgba(242, 247, 255, .88);
+    font-size: .79rem;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.odo-selected-note {
+    min-height: 76px;
+    padding: 12px;
+    margin: 0 0 14px;
+    border-radius: 12px;
+    color: rgba(242, 247, 255, .80);
+    background: rgba(0, 209, 255, .06);
+    border: 1px solid rgba(0, 209, 255, .13);
+    font-size: .84rem;
+    line-height: 1.55;
+}
+
+.odo-health-ring {
+    --angle: calc(var(--health) * 3.6deg);
+    width: 148px;
+    height: 148px;
+    display: grid;
+    place-items: center;
+    margin: 4px auto 18px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at center, #0b173a 0 55%, transparent 56%),
+        conic-gradient(var(--odo-green) var(--angle), rgba(144, 165, 204, .16) 0);
+    box-shadow: inset 0 0 0 1px rgba(0, 209, 255, .13), 0 20px 42px rgba(0, 0, 0, .18);
+}
+
+.odo-health-ring strong {
+    display: block;
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.odo-health-ring span {
+    display: block;
+    margin-top: 4px;
+    color: var(--odo-muted);
+    font-size: .72rem;
+    text-align: center;
+}
+
+.odo-progress-list {
+    display: grid;
+    gap: 12px;
+}
+
+.odo-progress-list div {
+    display: grid;
+    gap: 7px;
+}
+
+.odo-progress-list span {
+    color: var(--odo-muted);
+    font-size: .78rem;
+}
+
+.odo-progress-list i {
+    height: 7px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--bar) var(--value), rgba(144, 165, 204, .16) 0);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--bar) 35%, transparent);
+}
+
+.odo-stage-panel {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.odo-stage-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px;
+    border-bottom: 1px solid rgba(0, 209, 255, .11);
+}
+
+.odo-segmented {
+    display: inline-flex;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 13px;
+    background: rgba(8, 16, 40, .70);
+    border: 1px solid rgba(144, 165, 204, .12);
+}
+
+.odo-segmented button {
+    min-height: 36px;
+    padding: 0 12px;
+    border: 1px solid transparent;
+    color: var(--odo-muted);
+    background: transparent;
+}
+
+.odo-segmented button.active {
+    color: #fff;
+    background: rgba(0, 209, 255, .10);
+    border-color: rgba(0, 209, 255, .22);
+}
+
+.odo-icon-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(144, 165, 204, .14);
+    color: var(--odo-muted);
+    background: rgba(8, 16, 40, .58);
+}
+
+.odo-icon-btn:hover {
+    color: #fff;
+    border-color: rgba(0, 209, 255, .28);
+    background: rgba(0, 209, 255, .08);
+}
+
+#zoomRange {
+    width: 132px;
+    accent-color: var(--odo-cyan);
+}
+
+.odontograma-board {
+    position: relative;
+    min-height: 610px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 16px;
+    perspective: 1200px;
+    background:
+        linear-gradient(rgba(0, 209, 255, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 209, 255, .04) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(0, 209, 255, .10), transparent 52%);
+    background-size: 38px 38px, 38px 38px, auto;
+}
+
+.odo-stage-glow {
+    position: absolute;
+    width: min(76%, 880px);
+    aspect-ratio: 1 / .45;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 209, 255, .18), transparent 68%);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+#odontogramaSvg {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1120px);
+    min-width: 820px;
+    height: auto;
+    transform:
+        rotateX(var(--odo-tilt-x, 0deg))
+        rotateY(var(--odo-tilt-y, 0deg))
+        rotateZ(var(--odo-rotate, 0deg))
+        scale(var(--odo-zoom, 1));
+    transform-origin: 50% 50%;
+    transition: transform .35s ease, filter .35s ease;
+    will-change: transform;
+}
+
+.odontograma-board.is-3d #odontogramaSvg {
+    filter: drop-shadow(0 38px 44px rgba(0, 0, 0, .32));
+}
+
+.odo-arch-line {
+    fill: none;
+    stroke: rgba(0, 209, 255, .18);
+    stroke-width: 2;
+    stroke-dasharray: 10 12;
+}
+
+.odo-arch-label {
+    fill: rgba(144, 165, 204, .62);
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 780;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.tooth {
+    cursor: pointer;
+    filter: url(#toothShadow);
+    transition: opacity .2s ease;
+}
+
+.tooth > * {
+    transition: transform .22s ease, fill .22s ease, stroke .22s ease, opacity .22s ease, filter .22s ease;
+}
+
+.tooth:hover .tooth-body,
+.tooth.is-selected .tooth-body {
+    transform: translateY(-6px) scale(1.08);
+    filter: url(#selectedGlow);
+}
+
+.tooth:hover .tooth-root,
+.tooth.is-selected .tooth-root {
+    transform: translateY(-4px) scale(1.04);
+}
+
+.tooth.is-dimmed {
+    opacity: .24;
+}
+
+.tooth-platform {
+    fill: rgba(0, 0, 0, .22);
+}
+
+.tooth-root {
+    fill: url(#toothRoot);
+    stroke: rgba(255, 255, 255, .34);
+    stroke-width: 1.2;
+    transform-origin: center;
+}
+
+.tooth-body {
+    fill: url(#toothBase);
+    stroke: rgba(255, 255, 255, .58);
+    stroke-width: 1.6;
+    transform-origin: center;
+}
+
+.tooth-state-caries .tooth-body { fill: color-mix(in srgb, #ef4444 42%, #f3f7ff); }
+.tooth-state-obturado .tooth-body { fill: color-mix(in srgb, #3b82f6 38%, #f3f7ff); }
+.tooth-state-extraccion_indicada .tooth-body { fill: color-mix(in srgb, #f59e0b 42%, #f3f7ff); }
+.tooth-state-ausente .tooth-body { fill: rgba(107, 114, 128, .45); stroke-dasharray: 5 4; }
+.tooth-state-corona .tooth-body { fill: color-mix(in srgb, #facc15 46%, #f3f7ff); }
+.tooth-state-protesis .tooth-body { fill: color-mix(in srgb, #8b5cf6 42%, #f3f7ff); }
+.tooth-state-implante .tooth-body { fill: color-mix(in srgb, #14b8a6 42%, #f3f7ff); }
+.tooth-state-fractura .tooth-body { fill: color-mix(in srgb, #f97316 46%, #f3f7ff); }
+.tooth-state-tratamiento_conductos .tooth-body { fill: color-mix(in srgb, #0ea5e9 42%, #f3f7ff); }
+
+.tooth-shine {
+    fill: rgba(255, 255, 255, .52);
+    pointer-events: none;
+}
+
+.tooth-groove {
+    fill: none;
+    stroke: rgba(35, 54, 94, .38);
+    stroke-width: 2;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.tooth-state-marker {
+    stroke: rgba(255, 255, 255, .72);
+    stroke-width: 2;
+}
+
+.tooth-state-halo {
+    fill: none;
+    stroke: var(--state-color);
+    stroke-width: 1.5;
+    opacity: .38;
+    transform-origin: center;
+    animation: odoPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes odoPulse {
+    0%, 100% { transform: scale(.86); opacity: .24; }
+    50% { transform: scale(1.15); opacity: .56; }
+}
+
+.tooth-label {
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    fill: rgba(242, 247, 255, .86);
+    font-weight: 820;
+    pointer-events: none;
+}
+
+.odo-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    padding: 14px;
+    border-top: 1px solid rgba(0, 209, 255, .11);
+}
+
+.odo-legend-item {
+    min-height: 36px;
+    padding: 0 11px;
+    border: 1px solid color-mix(in srgb, var(--state-color) 24%, transparent);
+    color: rgba(242, 247, 255, .84);
+    background: color-mix(in srgb, var(--state-color) 9%, transparent);
+}
+
+.odo-legend-item i {
+    color: var(--state-color);
+}
+
+.odo-legend-item.is-active {
+    color: #fff;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--state-color) 14%, transparent);
+}
+
+.odo-tooltip {
+    position: fixed;
+    z-index: 1080;
+    min-width: 170px;
+    max-width: 240px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    color: var(--odo-text);
+    background: rgba(8, 16, 40, .92);
+    border: 1px solid rgba(0, 209, 255, .18);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, .30);
+    backdrop-filter: blur(12px);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .15s ease, transform .15s ease;
+}
+
+.odo-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.odo-tooltip strong {
+    display: block;
+    color: #fff;
+    font-size: .92rem;
+}
+
+.odo-tooltip span {
+    display: block;
+    margin-top: 4px;
+    color: var(--odo-muted);
+    font-size: .78rem;
+}
+
+.odo-modal .modal-content {
+    color: var(--odo-text);
+    background: linear-gradient(180deg, rgba(17, 28, 68, .98), rgba(8, 16, 40, .98));
+    border: 1px solid rgba(0, 209, 255, .18);
+    border-radius: 16px;
+    box-shadow: 0 28px 76px rgba(0, 0, 0, .42);
+}
+
+.odo-modal .modal-header,
+.odo-modal .modal-footer {
+    border-color: rgba(0, 209, 255, .12);
+}
+
+.odo-modal-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.odo-modal-title > span {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    color: var(--odo-cyan);
+    background: rgba(0, 209, 255, .08);
+    border: 1px solid rgba(0, 209, 255, .16);
+}
+
+.odo-modal-title h5 {
+    margin: 0;
+    font-weight: 790;
+}
+
+.odo-modal-title p {
+    margin: 3px 0 0;
+    color: var(--odo-muted);
+    font-size: .82rem;
+}
+
+.odo-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 14px;
+}
+
+.odo-field {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.odo-field > span,
+.odo-face-section > span {
+    color: rgba(242, 247, 255, .84);
+    font-size: .8rem;
+    font-weight: 760;
+}
+
+.odo-field input,
+.odo-field select,
+.odo-field textarea {
+    min-height: 48px;
+    border-radius: 11px;
+    border: 1px solid rgba(144, 165, 204, .18);
+    color: var(--odo-text);
+    background: rgba(8, 16, 40, .70);
+}
+
+.odo-field textarea {
+    padding-top: 12px;
+    resize: vertical;
+}
+
+.odo-field input:focus,
+.odo-field select:focus,
+.odo-field textarea:focus {
+    color: var(--odo-text);
+    background: rgba(8, 16, 40, .94);
+    border-color: rgba(0, 209, 255, .60);
+    box-shadow: 0 0 0 4px rgba(0, 209, 255, .08);
+}
+
+.odo-face-section {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.odo-face-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.odo-face-chip {
+    cursor: pointer;
+}
+
+.odo-face-chip input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.odo-face-chip span {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 10px;
+    color: var(--odo-muted);
+    background: rgba(8, 16, 40, .62);
+    border: 1px solid rgba(144, 165, 204, .14);
+    font-size: .84rem;
+    transition: color .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.odo-face-chip input:checked + span {
+    color: #fff;
+    background: rgba(0, 209, 255, .11);
+    border-color: rgba(0, 209, 255, .32);
+}
+
+@media (max-width: 1280px) {
+    .odo-stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .odo-workspace { grid-template-columns: 310px minmax(0, 1fr); }
+    #odontogramaSvg { min-width: 760px; }
+}
+
+@media (max-width: 1080px) {
+    .odo-hero,
+    .odo-stage-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .odo-actions,
+    .odo-tool-buttons {
+        justify-content: stretch;
+    }
+    .odo-actions > *,
+    .odo-tool-buttons > * {
+        flex: 1 1 auto;
+    }
+    .odo-workspace {
+        grid-template-columns: 1fr;
+    }
+    .odo-side-panel {
+        position: static;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .odo-patient {
+        align-items: flex-start;
+    }
+    .odo-avatar {
+        width: 60px;
+        height: 60px;
+        flex-basis: 60px;
+        border-radius: 18px;
+    }
+    .odo-stats-grid,
+    .odo-side-panel,
+    .odo-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .odontograma-board {
+        min-height: 500px;
+        overflow-x: auto;
+        justify-content: start;
+    }
+    #odontogramaSvg {
+        min-width: 720px;
+    }
+    #zoomRange {
+        width: 100%;
+    }
+}

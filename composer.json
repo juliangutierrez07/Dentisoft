@@ -1,0 +1,21 @@
+{
+    "name": "dentisoft/odontologia",
+    "description": "Sistema de Gestión Odontológica — DentiSoft 1.0",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.0",
+        "phpmailer/phpmailer": "^6.8",
+        "tecnickcom/tcpdf": "^6.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "DentiSoft\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
