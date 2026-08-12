@@ -41,7 +41,9 @@ WORKDIR /var/www/html
 COPY . .
 
 # Dependencias PHP de producción + carpetas de escritura y permisos
-RUN composer install --no-dev --optimize-autoloader --no-interaction \
+# Se usa "composer update" porque el composer.lock del repo puede estar
+# desfasado respecto a composer.json (regenera el lock e instala todo).
+RUN composer update --no-dev --optimize-autoloader --no-interaction --prefer-dist \
     && mkdir -p storage/logs storage/cache storage/sessions \
                 assets/uploads/fotos assets/uploads/radiografias \
     && chown -R www-data:www-data /var/www/html \
