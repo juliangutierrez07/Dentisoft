@@ -146,6 +146,26 @@ document.addEventListener('DOMContentLoaded', function() {
             marcarTodasNotificaciones();
         });
     }
+
+    // ─── Clic en una notificación: marcar leída y navegar a su destino ──
+    const listaNotif = document.getElementById('listaNotificaciones');
+    if (listaNotif) {
+        listaNotif.addEventListener('click', async function(e) {
+            const item = e.target.closest('.notif-item');
+            if (!item) return;
+            e.preventDefault();
+            const id = parseInt(item.getAttribute('data-id') || '0', 10);
+            const url = item.getAttribute('data-url') || '';
+            if (id > 0) {
+                try {
+                    await ajaxRequest(BASE_URL + '/api/notificaciones_api.php?action=marcar_leida', 'POST', { id: id });
+                } catch (err) { /* navegación continúa aunque falle el marcado */ }
+            }
+            if (url) {
+                window.location.href = url;
+            }
+        });
+    }
 });
 
 // ─── Notificaciones AJAX ─────────────────────────────────────
@@ -179,9 +199,10 @@ async function cargarNotificaciones() {
             };
             const icono = iconos[n.tipo] || iconos.sistema;
             const tiempo = tiempoRelativo(n.created_at);
+            const destino = urlNotificacion(n.url_accion);
 
             html += `
-                <div class="dropdown-item notif-item ${n.leida ? '' : 'notif-unread'}" data-id="${n.id}">
+                <div class="dropdown-item notif-item ${n.leida ? '' : 'notif-unread'}" data-id="${n.id}" data-url="${escapeHtml(destino)}">
                     <div class="d-flex align-items-start gap-2">
                         <i class="bi ${icono} mt-1"></i>
                         <div class="flex-grow-1 min-width-0">
@@ -189,6 +210,7 @@ async function cargarNotificaciones() {
                             <div class="notif-msg">${escapeHtml(n.mensaje)}</div>
                             <small class="text-muted">${tiempo}</small>
                         </div>
+                        ${destino ? '<i class="bi bi-chevron-right notif-go"></i>' : ''}
                     </div>
                 </div>`;
         });
@@ -213,6 +235,19 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+// Normaliza el url_accion de una notificación para el entorno actual.
+// Quita un prefijo de instalación embebido (/DentiSoft1.0) y antepone BASE_URL.
+function urlNotificacion(u) {
+    if (!u) return '';
+    if (/^https?:\/\//i.test(u)) return u;               // ya es absoluta
+    u = u.replace(/^\/DentiSoft1\.0(?=\/)/, '');          // prefijo local viejo
+    if (u.charAt(0) !== '/') u = '/' + u;
+    if (typeof BASE_URL === 'string' && BASE_URL && !u.startsWith(BASE_URL + '/')) {
+        u = BASE_URL + u;
+    }
+    return u;
 }
 
 function tiempoRelativo(fecha) {
@@ -268,5 +303,7 @@ styleNotif.textContent = `
     .notif-unread { background: rgba(99,102,241,0.06); }
     .notif-titulo { font-size: 0.84rem; font-weight: 600; color: #e2e8f0; }
     .notif-msg { font-size: 0.78rem; color: #94a3b8; margin-top: 2px; line-height: 1.4; }
+    .notif-go { color: rgba(255,255,255,0.28); font-size: 0.85rem; align-self: center; transition: color .18s ease, transform .18s ease; }
+    .notif-item:hover .notif-go { color: #2FE0B0; transform: translateX(2px); }
 `;
 document.head.appendChild(styleNotif);
