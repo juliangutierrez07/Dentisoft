@@ -963,3 +963,134 @@ h1, h2, h3, h4, h5, h6 {
     .user-info.d-none.d-md-block { display: none !important; }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   REDISEÑO — Dropdowns de notificaciones y perfil (contraste + acabado)
+   Sobrescribe reglas previas; neutraliza el .text-muted de Bootstrap.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Contenedor común */
+.dropdown-profile,
+.dropdown-notif {
+    background: #0F141C !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    box-shadow: 0 24px 64px rgba(0,0,0,.60) !important;
+    border-radius: 16px !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+/* Texto legible: gana al `.text-muted !important` de Bootstrap por especificidad */
+.dropdown-notif .text-muted,
+.dropdown-notif .small,
+.dropdown-profile .text-muted,
+.dropdown-profile .small {
+    color: rgba(255,255,255,0.60) !important;
+}
+
+/* ── NOTIFICACIONES ─────────────────────────────────────────── */
+.dropdown-notif { width: 384px; }
+
+.dropdown-notif .dropdown-header-custom {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(90deg, rgba(139,126,255,0.12), rgba(47,224,176,0.06));
+}
+.dropdown-notif .dropdown-header-custom strong {
+    color: #F2F5F8;
+    font-size: 0.98rem;
+    font-weight: 700;
+}
+.dropdown-notif .dropdown-header-custom .small {
+    color: rgba(255,255,255,0.55) !important;
+    margin-top: 2px;
+}
+#marcarTodasLeidas {
+    color: #2FE0B0 !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 11px;
+    border-radius: 8px;
+    background: rgba(47,224,176,0.10);
+    white-space: nowrap;
+    transition: background .18s ease;
+}
+#marcarTodasLeidas:hover { background: rgba(47,224,176,0.20); }
+
+.notif-list { padding: 8px; max-height: 360px; }
+.notif-item { display:flex; gap:12px; padding:12px; border-radius:12px; transition: background .18s ease; align-items:flex-start; }
+.notif-item:hover { background: rgba(255,255,255,0.05); transform: none; }
+.notif-item .notif-icon { width:40px; height:40px; border-radius:11px; font-size:1rem; box-shadow: 0 6px 16px rgba(0,0,0,.30); }
+.notif-item .notif-title { font-weight:700; color:#EEF2F4; font-size:0.9rem; }
+.notif-item .notif-desc { color: rgba(255,255,255,0.62) !important; font-size:0.83rem; margin-top:3px; line-height:1.45; }
+.notif-item .notif-time { color: rgba(255,255,255,0.42) !important; font-size:0.72rem; white-space:nowrap; }
+.notif-item.info .notif-icon { background: linear-gradient(135deg,#3B82F6,#2563EB); }
+.notif-item.success .notif-icon { background: linear-gradient(135deg,#2FE0B0,#1F9E7C); }
+.notif-item.warning .notif-icon { background: linear-gradient(135deg,#F5B94F,#D9932F); }
+.notif-item.error .notif-icon { background: linear-gradient(135deg,#F87171,#D9615F); }
+.notif-empty, .notif-loading { color: rgba(255,255,255,0.50) !important; }
+
+.dropdown-notif .dropdown-footer {
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+    padding: 12px !important;
+    background: rgba(255,255,255,0.02);
+}
+.dropdown-notif .dropdown-footer a {
+    color: #8B7EFF !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+.dropdown-notif .dropdown-footer a:hover { text-decoration: underline; }
+
+/* ── PERFIL ─────────────────────────────────────────────────── */
+.dropdown-profile { width: 344px; }
+
+.profile-head {
+    background: linear-gradient(135deg, rgba(139,126,255,0.16), rgba(47,224,176,0.06)) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.user-avatar-xl, .user-avatar-lg {
+    background: linear-gradient(135deg,#8B7EFF,#2FE0B0) !important;
+    color:#fff !important;
+    font-weight:700;
+    box-shadow: 0 8px 20px rgba(139,126,255,0.35) !important;
+}
+.user-avatar-xl { width: 60px; height: 60px; border-radius: 14px; font-size: 1.3rem; }
+
+.profile-name { font-weight: 700; color: #F4F7FA; font-size: 1.05rem; line-height:1.2; }
+.profile-email { color: rgba(255,255,255,0.62) !important; font-weight: 500; font-size: 0.84rem; margin-top:2px; word-break: break-all; }
+.role-badge-lg {
+    padding:6px 12px; border-radius:999px; font-weight:700; font-size:0.76rem; color:#FFFFFF;
+    background: linear-gradient(90deg, rgba(139,126,255,0.32), rgba(47,224,176,0.18));
+    border:1px solid rgba(255,255,255,0.12);
+}
+.profile-head .text-primary-light,
+.profile-head strong.text-primary-light { color: #2FE0B0 !important; font-weight: 600; }
+.profile-head .bi-clock-history { color: rgba(255,255,255,0.50); }
+
+.profile-perms { border-top: 1px solid rgba(255,255,255,0.07) !important; }
+.profile-perms .text-muted { color: rgba(255,255,255,0.72) !important; font-weight: 500 !important; }
+.profile-perms .text-white { color: #FFFFFF !important; font-weight: 700 !important; }
+.profile-perms .view-perms {
+    border-radius: 9px; padding:7px 13px; font-size:0.8rem; font-weight:600;
+    color:#B9B2FF !important; background: transparent !important;
+    border:1px solid rgba(139,126,255,0.40) !important;
+}
+.profile-perms .view-perms:hover { background: rgba(139,126,255,0.16) !important; color:#fff !important; }
+
+/* Ítems del menú (Mi Perfil, Configuración, Ayuda, Cerrar Sesión) */
+.dropdown-profile ul { padding: 8px !important; }
+.dropdown-profile .dropdown-item {
+    border-radius: 10px; margin: 2px 0; padding: 10px 12px;
+    color: rgba(255,255,255,0.90); font-weight: 500; font-size: 0.9rem;
+    transition: background .18s ease, color .18s ease;
+}
+.dropdown-profile .dropdown-item:hover { background: rgba(255,255,255,0.06); color:#FFFFFF; }
+.dropdown-profile .dropdown-item i { color: rgba(255,255,255,0.72); font-size: 1rem; }
+.dropdown-profile .dropdown-item:hover i { color: #2FE0B0; }
+.dropdown-profile .dropdown-divider { border-color: rgba(255,255,255,0.08); }
+
+.dropdown-item.text-danger { color: #FF7A7A !important; font-weight: 600; }
+.dropdown-item.text-danger:hover { background: rgba(255,107,107,0.12) !important; color:#FF9B9B !important; }
+.dropdown-item.text-danger:hover i { color:#FF9B9B !important; }
+
