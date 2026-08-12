@@ -285,7 +285,7 @@ $saludDental = (int) round(($stats['sano'] / max(1, $totalPiezas)) * 100);
                             <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#00091f" flood-opacity=".34"/>
                         </filter>
                         <filter id="selectedGlow" x="-70%" y="-70%" width="240%" height="240%">
-                            <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00d1ff" flood-opacity=".9"/>
+                            <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#2FE0B0" flood-opacity=".9"/>
                         </filter>
                     </defs>
 

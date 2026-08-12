@@ -18,55 +18,65 @@ function esc(string $value): string {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
+function emptyState(string $text): string {
+    return '<div class="reports-empty"><i class="bi bi-inbox"></i><strong>Sin datos</strong><p>' . esc($text) . '</p></div>';
+}
+
 $labels = array_map(fn($row) => $row['descripcion'], $procedimientos);
 $values = array_map(fn($row) => (float) $row['total'], $procedimientos);
+$cssAdicional = 'reportes-premium.css';
 ?>
 <?php require_once __DIR__ . '/../../includes/header.php'; ?>
-<div class="container-fluid py-4">
-    <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-3 mb-4">
+<div class="reports-page">
+    <section class="reports-hero">
         <div>
-            <h1 class="h3 mb-1">Procedimientos</h1>
-            <p class="text-muted mb-0">Analiza los procedimientos con mayores ingresos facturados.</p>
+            <span class="reports-kicker"><i class="bi bi-clipboard2-pulse"></i> Reportes clinicos</span>
+            <h1>Procedimientos</h1>
+            <p>Analiza los procedimientos con mayores ingresos facturados.</p>
         </div>
-        <a href="index.php" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Volver</a>
-    </div>
-
-    <div class="card bg-dark border-secondary shadow-sm mb-4">
-        <div class="card-body">
-            <h5 class="mb-3">Distribución de procedimientos</h5>
-            <canvas id="procedimientosChart" height="140"></canvas>
+        <div class="reports-hero-actions">
+            <a href="index.php" class="report-action"><i class="bi bi-arrow-left"></i><span>Volver</span></a>
         </div>
-    </div>
+    </section>
 
-    <div class="card bg-dark border-secondary shadow-sm">
-        <div class="card-body">
-            <h5 class="mb-3">Top procedimientos</h5>
-            <div class="table-responsive">
-                <table class="table table-dark table-striped mb-0">
+    <article class="report-panel">
+        <header>
+            <div><span>Distribucion</span><h2>Procedimientos mas facturados</h2></div>
+            <i class="bi bi-bar-chart"></i>
+        </header>
+        <div class="chart-shell"><canvas id="procedimientosChart"></canvas></div>
+    </article>
+
+    <article class="report-panel">
+        <header>
+            <div><span>Ranking</span><h2>Top procedimientos</h2></div>
+            <i class="bi bi-trophy"></i>
+        </header>
+        <?php if (empty($procedimientos)): ?>
+            <?= emptyState('No hay procedimientos registrados.') ?>
+        <?php else: ?>
+            <div class="reports-table-wrap">
+                <table class="reports-table">
                     <thead>
                         <tr>
                             <th>Procedimiento</th>
-                            <th class="text-end">Cantidad</th>
-                            <th class="text-end">Total facturado</th>
+                            <th class="num">Cantidad</th>
+                            <th class="num">Total facturado</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($procedimientos)): ?>
-                            <tr><td colspan="3" class="text-center text-muted">No hay procedimientos registrados.</td></tr>
-                        <?php else: ?>
-                            <?php foreach ($procedimientos as $procedimiento): ?>
-                                <tr>
-                                    <td><?= esc($procedimiento['descripcion']) ?></td>
-                                    <td class="text-end"><?= number_format($procedimiento['cantidad'], 0, ',', '.') ?></td>
-                                    <td class="text-end">$<?= number_format($procedimiento['total'], 0, ',', '.') ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                        <?php foreach ($procedimientos as $procedimiento): ?>
+                            <tr>
+                                <td><?= esc($procedimiento['descripcion']) ?></td>
+                                <td class="num mono"><?= number_format((float) $procedimiento['cantidad'], 0, ',', '.') ?></td>
+                                <td class="num mono">$<?= number_format((float) $procedimiento['total'], 0, ',', '.') ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
+        <?php endif; ?>
+    </article>
 </div>
 <script>
     window.REPORTES_DATA = {

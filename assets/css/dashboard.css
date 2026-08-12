@@ -1,25 +1,42 @@
 /* ============================================================
    DentiSoft 1.0 — Dashboard Styles
+   Alineado al sistema de diseño de la landing (home.css):
+   tokens --void/--surface/--mint/--violet, Fraunces para
+   encabezados, JetBrains Mono para cifras.
    ============================================================ */
+
+/* ─── Fondo de página (especifico de dashboard.php) ──────────
+   El shell del sidebar/navbar/logo vive en style.css (fuente
+   unica, compartida por todos los modulos) — no se duplica aqui. */
+body {
+    background:
+        radial-gradient(circle at 20% 8%, rgba(139, 126, 255, 0.10), transparent 25%),
+        radial-gradient(circle at 82% 4%, rgba(47, 224, 176, 0.08), transparent 24%),
+        linear-gradient(180deg, var(--void) 0%, var(--surface) 38%, var(--void) 100%);
+}
+
+.main-content {
+    background-image: none;
+}
 
 /* ─── Dashboard Hero ───────────────────────────────────────── */
 .dashboard-hero {
     position: relative;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
-    border: 1px solid rgba(99, 102, 241, 0.15);
+    background: linear-gradient(135deg, var(--surface), var(--surface-2));
+    border: 1px solid var(--border-hi);
     border-radius: var(--border-radius-lg);
     padding: 34px 36px;
     margin-bottom: 30px;
-    box-shadow: var(--shadow-glow), var(--shadow-sm);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
     overflow: hidden;
 }
 .dashboard-hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.14) 0%, transparent 22%),
-                      radial-gradient(circle at 80% 30%, rgba(8, 145, 178, 0.12) 0%, transparent 18%),
-                      radial-gradient(circle at 50% 90%, rgba(99, 102, 241, 0.08) 0%, transparent 25%);
+    background-image: radial-gradient(circle at 10% 20%, rgba(47, 224, 176, 0.14) 0%, transparent 22%),
+                      radial-gradient(circle at 80% 30%, rgba(139, 126, 255, 0.12) 0%, transparent 18%),
+                      radial-gradient(circle at 50% 90%, rgba(47, 224, 176, 0.08) 0%, transparent 25%);
     pointer-events: none;
 }
 .hero-info {
@@ -33,16 +50,18 @@
 .hero-overline {
     text-transform: uppercase;
     letter-spacing: 1.6px;
-    color: var(--accent-light);
+    color: var(--mint);
     font-weight: 700;
     font-size: 0.82rem;
     margin-bottom: 10px;
 }
 .hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
     font-size: clamp(2rem, 2.4vw, 2.8rem);
     line-height: 1.05;
     margin: 0;
-    color: #f8fafc;
+    color: var(--text-heading);
 }
 .hero-text {
     max-width: 680px;
@@ -55,26 +74,33 @@
     gap: 12px;
     flex-wrap: wrap;
 }
+
+/* Programar cita: acción primaria — sólido menta, sin gradiente */
 .btn-hero {
     padding: 12px 24px;
     font-weight: 700;
-    color: #fff;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #04211A;
+    background: var(--mint);
     border: none;
-    box-shadow: 0 14px 30px rgba(99, 102, 241, 0.18);
+    box-shadow: 0 18px 44px rgba(47, 224, 176, 0.22);
 }
 .btn-hero:hover {
-    transform: translateY(-1px);
+    filter: brightness(1.08);
+    transform: translateY(-2px);
 }
+
+/* Agregar paciente: acción secundaria — outline/ghost */
 .btn-hero-outline {
     padding: 12px 24px;
     font-weight: 700;
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    color: #fff;
-    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-hi);
+    color: var(--text-heading);
+    background: rgba(255, 255, 255, 0.03);
 }
 .btn-hero-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    border-color: rgba(47, 224, 176, 0.4);
+    background: var(--surface-2);
 }
 
 /* ─── KPI Cards ───────────────────────────────────────────── */
@@ -86,9 +112,9 @@
 }
 
 .kpi-card {
-    background: rgba(15, 23, 42, 0.92);
+    background: var(--surface);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(99, 102, 241, 0.14);
+    border: 1px solid var(--border);
     border-radius: var(--border-radius-lg);
     padding: 24px;
     display: flex;
@@ -109,14 +135,15 @@
 }
 .kpi-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(8, 17, 33, 0.35);
-    border-color: rgba(99, 102, 241, 0.22);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    border-color: var(--border-hi);
 }
 
-.kpi-card.kpi-patients::before  { background: linear-gradient(90deg, #6366f1, #818cf8); }
-.kpi-card.kpi-citas::before     { background: linear-gradient(90deg, #00BFA6, #34d9c3); }
-.kpi-card.kpi-ingresos::before  { background: linear-gradient(90deg, #10b981, #34d399); }
-.kpi-card.kpi-cartera::before   { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+/* Menta = métricas financieras/positivas · Violeta = informativas/neutrales */
+.kpi-card.kpi-citas::before,
+.kpi-card.kpi-ingresos::before  { background: var(--mint); }
+.kpi-card.kpi-patients::before,
+.kpi-card.kpi-cartera::before   { background: var(--violet); }
 
 .kpi-info { flex: 1; }
 .kpi-label {
@@ -128,8 +155,10 @@
     margin-bottom: 8px;
 }
 .kpi-value {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--text-heading);
     line-height: 1;
     margin-bottom: 6px;
@@ -154,10 +183,10 @@
     font-size: 1.4rem;
     flex-shrink: 0;
 }
-.kpi-patients .kpi-icon  { background: rgba(99, 102, 241, 0.12); color: var(--primary-light); }
-.kpi-citas .kpi-icon     { background: rgba(0, 191, 166, 0.12);  color: var(--accent); }
-.kpi-ingresos .kpi-icon  { background: rgba(16, 185, 129, 0.12); color: var(--success); }
-.kpi-cartera .kpi-icon   { background: rgba(245, 158, 11, 0.12); color: var(--warning); }
+.kpi-citas .kpi-icon,
+.kpi-ingresos .kpi-icon { background: rgba(47, 224, 176, 0.12); color: var(--mint); }
+.kpi-patients .kpi-icon,
+.kpi-cartera .kpi-icon  { background: rgba(139, 126, 255, 0.12); color: var(--violet); }
 
 /* ─── Dashboard Grid ──────────────────────────────────────── */
 .dashboard-grid {
@@ -168,9 +197,9 @@
 }
 
 .chart-card {
-    background: rgba(15, 23, 42, 0.94);
+    background: var(--surface);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(99, 102, 241, 0.14);
+    border: 1px solid var(--border);
     border-radius: var(--border-radius-lg);
     padding: 24px;
     box-shadow: var(--shadow-sm);
@@ -185,13 +214,13 @@
 .chart-card .chart-title {
     font-size: 1rem;
     font-weight: 600;
-    color: #f8fafc;
+    color: var(--text-heading);
     display: flex;
     align-items: center;
     gap: 8px;
 }
 .chart-card .chart-title i {
-    color: var(--accent);
+    color: var(--mint);
 }
 
 /* ─── Citas del día ───────────────────────────────────────── */
@@ -202,26 +231,23 @@
     padding: 16px;
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(148, 163, 184, 0.08);
+    border: 1px solid var(--border);
     transition: var(--transition);
 }
 .cita-item + .cita-item {
     margin-top: 12px;
 }
 .cita-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--surface-2);
     transform: translateX(2px);
-}
-
-.chart-card {
-    box-shadow: var(--shadow-sm);
 }
 
 .cita-hora {
     min-width: 60px;
-    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
     font-weight: 600;
-    color: var(--primary-light);
+    color: var(--mint);
 }
 
 .cita-linea {
@@ -230,16 +256,18 @@
     border-radius: 2px;
     flex-shrink: 0;
 }
-.cita-linea.confirmada { background: var(--success); }
-.cita-linea.pendiente  { background: var(--warning); }
-.cita-linea.atendida   { background: var(--info); }
-.cita-linea.cancelada  { background: var(--danger); }
+/* Colores de estado suavizados para combinar con la paleta oscura,
+   pero manteniendo el mismo significado semántico por estado */
+.cita-linea.confirmada { background: #2FAF7C; }
+.cita-linea.pendiente  { background: #D9A247; }
+.cita-linea.atendida   { background: #5C87CE; }
+.cita-linea.cancelada  { background: #D9615F; }
 
 .cita-detalle { flex: 1; min-width: 0; }
 .cita-paciente {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #f8fafc;
+    color: var(--text-heading);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -255,6 +283,13 @@
 .cita-estado {
     flex-shrink: 0;
 }
+
+/* Badges de estado: colores semánticos suavizados (no mint/violet,
+   son información funcional de estado, no acentos de marca) */
+.badge-success { background: rgba(47, 175, 124, 0.14); color: #4FCB98; }
+.badge-warning { background: rgba(217, 162, 71, 0.14); color: #E0B368; }
+.badge-danger  { background: rgba(217, 97, 95, 0.14);  color: #E68583; }
+.badge-info    { background: rgba(92, 135, 206, 0.14); color: #7FA3DE; }
 
 /* ─── Actividad reciente ──────────────────────────────────── */
 .actividad-vacia {

@@ -7,20 +7,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const css = getComputedStyle(document.documentElement);
     const palette = [
-        css.getPropertyValue('--report-cyan').trim() || '#00d1ff',
-        css.getPropertyValue('--report-blue').trim() || '#5b7cfa',
-        css.getPropertyValue('--report-green').trim() || '#22e6a8',
-        css.getPropertyValue('--report-yellow').trim() || '#f8c46c',
-        '#a78bfa',
-        css.getPropertyValue('--report-red').trim() || '#ff7373',
-        '#38bdf8',
-        '#34d399',
+        css.getPropertyValue('--report-cyan').trim() || '#2FE0B0',
+        css.getPropertyValue('--report-blue').trim() || '#8B7EFF',
+        css.getPropertyValue('--report-green').trim() || '#2FAF7C',
+        css.getPropertyValue('--report-yellow').trim() || '#D9A247',
+        css.getPropertyValue('--report-info').trim() || '#5C87CE',
+        css.getPropertyValue('--report-red').trim() || '#D9615F',
+        '#3FA7A0',
+        '#B98BC9',
     ];
 
     Chart.defaults.color = 'rgba(226, 232, 240, 0.74)';
     Chart.defaults.font.family = 'Inter, system-ui, sans-serif';
-    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(8, 16, 40, 0.94)';
-    Chart.defaults.plugins.tooltip.borderColor = 'rgba(0, 209, 255, 0.22)';
+    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(15, 20, 28, 0.94)';
+    Chart.defaults.plugins.tooltip.borderColor = 'rgba(47, 224, 176, 0.22)';
     Chart.defaults.plugins.tooltip.borderWidth = 1;
     Chart.defaults.plugins.tooltip.padding = 12;
     Chart.defaults.plugins.tooltip.cornerRadius = 12;
@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!canvas || !hasData(data)) return emptyChart(canvas);
         const ctx = canvas.getContext('2d');
         const gradient = ctx.createLinearGradient(0, 0, 0, 280);
-        gradient.addColorStop(0, 'rgba(0, 209, 255, 0.28)');
-        gradient.addColorStop(1, 'rgba(0, 209, 255, 0.01)');
+        gradient.addColorStop(0, 'rgba(47, 224, 176, 0.28)');
+        gradient.addColorStop(1, 'rgba(47, 224, 176, 0.01)');
         new Chart(canvas, {
             type: 'line',
             data: {
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 datasets: [{
                     data: data.values,
                     backgroundColor: data.labels.map((_, index) => `${palette[index % palette.length]}d9`),
-                    borderColor: 'rgba(8, 16, 40, 0.9)',
+                    borderColor: 'rgba(8, 11, 16, 0.9)',
                     borderWidth: 3,
                     hoverOffset: 8,
                 }],

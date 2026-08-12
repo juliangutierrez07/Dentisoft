@@ -1,11 +1,11 @@
 :root {
-    --odo-bg: #081028;
-    --odo-card: rgba(17, 28, 68, 0.86);
-    --odo-card-strong: rgba(10, 20, 50, 0.94);
-    --odo-border: rgba(0, 209, 255, 0.15);
-    --odo-cyan: #00d1ff;
-    --odo-blue: #5b5fff;
-    --odo-green: #00e0a4;
+    --odo-bg: #080B10;
+    --odo-card: rgba(22, 29, 40, 0.86);
+    --odo-card-strong: rgba(15, 20, 28, 0.94);
+    --odo-border: rgba(47, 224, 176, 0.15);
+    --odo-cyan: #2FE0B0;
+    --odo-blue: #8B7EFF;
+    --odo-green: #2FAF7C;
     --odo-text: #f2f7ff;
     --odo-muted: #90a5cc;
 }
@@ -14,9 +14,9 @@ body { background: var(--odo-bg); }
 
 .main-content {
     background:
-        radial-gradient(circle at 18% 6%, rgba(0, 209, 255, 0.11), transparent 28%),
-        radial-gradient(circle at 88% 0%, rgba(91, 95, 255, 0.14), transparent 24%),
-        linear-gradient(180deg, #081028 0%, #071124 100%);
+        radial-gradient(circle at 18% 6%, rgba(47, 224, 176, 0.11), transparent 28%),
+        radial-gradient(circle at 88% 0%, rgba(139, 126, 255, 0.14), transparent 24%),
+        linear-gradient(180deg, #080B10 0%, #0F141C 100%);
 }
 
 .odontograma-page {
@@ -41,8 +41,8 @@ body { background: var(--odo-bg); }
     border: 1px solid var(--odo-border);
     border-radius: 16px;
     background:
-        linear-gradient(135deg, rgba(17, 28, 68, .94), rgba(8, 16, 40, .82)),
-        radial-gradient(circle at 18% 0%, rgba(0, 224, 164, .12), transparent 30%);
+        linear-gradient(135deg, rgba(22, 29, 40, .94), rgba(8, 11, 16, .82)),
+        radial-gradient(circle at 18% 0%, rgba(47, 175, 124, .12), transparent 30%);
     box-shadow: 0 26px 72px rgba(0, 0, 0, .30);
     backdrop-filter: blur(16px);
 }
@@ -63,10 +63,10 @@ body { background: var(--odo-bg); }
     border-radius: 24px;
     color: #fff;
     font-size: 1.18rem;
-    font-weight: 850;
-    background: linear-gradient(135deg, var(--odo-green), var(--odo-cyan) 48%, var(--odo-blue));
+    font-weight: 700;
+    background: var(--odo-blue);
     border: 1px solid rgba(255, 255, 255, .14);
-    box-shadow: 0 20px 48px rgba(0, 209, 255, .20);
+    box-shadow: 0 20px 48px rgba(139, 126, 255, .22);
 }
 
 .odo-breadcrumb {
@@ -86,10 +86,11 @@ body { background: var(--odo-bg); }
 
 .odo-hero h1 {
     margin: 0;
+    font-family: 'Fraunces', serif;
     color: #fff;
     font-size: clamp(1.7rem, 2.5vw, 2.45rem);
     line-height: 1.08;
-    font-weight: 830;
+    font-weight: 500;
 }
 
 .odo-hero-meta {
@@ -107,7 +108,7 @@ body { background: var(--odo-bg); }
     padding: 0 11px;
     border-radius: 10px;
     color: rgba(242, 247, 255, .84);
-    background: rgba(8, 16, 40, .58);
+    background: rgba(8, 11, 16, .58);
     border: 1px solid rgba(144, 165, 204, .14);
     font-size: .81rem;
 }
@@ -154,27 +155,27 @@ body { background: var(--odo-bg); }
 }
 
 .odo-btn-primary {
-    color: #fff;
+    color: #04211A;
     border: 0;
-    background: linear-gradient(135deg, var(--odo-blue), var(--odo-cyan));
-    box-shadow: 0 18px 38px rgba(0, 209, 255, .18);
+    background: var(--odo-cyan);
+    box-shadow: 0 18px 38px rgba(47, 224, 176, .18);
 }
 
 .odo-btn-primary:hover {
-    color: #fff;
-    box-shadow: 0 22px 46px rgba(0, 209, 255, .26);
+    filter: brightness(1.08);
+    box-shadow: 0 22px 46px rgba(47, 224, 176, .26);
 }
 
 .odo-btn-ghost {
     color: var(--odo-muted);
-    background: rgba(8, 16, 40, .56);
+    background: rgba(8, 11, 16, .56);
     border-color: rgba(144, 165, 204, .16);
 }
 
 .odo-btn-ghost:hover {
     color: #fff;
-    background: rgba(0, 209, 255, .08);
-    border-color: rgba(0, 209, 255, .30);
+    background: rgba(47, 224, 176, .08);
+    border-color: rgba(47, 224, 176, .30);
 }
 
 .odo-btn:disabled,
@@ -186,7 +187,7 @@ body { background: var(--odo-bg); }
 .odo-btn.is-loading {
     position: relative;
     opacity: .82;
-    box-shadow: 0 22px 48px rgba(0, 209, 255, .24);
+    box-shadow: 0 22px 48px rgba(47, 224, 176, .24);
 }
 
 .odo-btn.is-loading::after {
@@ -218,7 +219,7 @@ body { background: var(--odo-bg); }
     padding: 14px;
     border: 1px solid rgba(144, 165, 204, .12);
     border-radius: 14px;
-    background: linear-gradient(180deg, rgba(17, 28, 68, .82), rgba(8, 16, 40, .88));
+    background: linear-gradient(180deg, rgba(22, 29, 40, .82), rgba(8, 11, 16, .88));
     box-shadow: 0 18px 48px rgba(0, 0, 0, .18);
     overflow: hidden;
     position: relative;
@@ -303,8 +304,8 @@ body { background: var(--odo-bg); }
     place-items: center;
     border-radius: 12px;
     color: var(--odo-cyan);
-    background: rgba(0, 209, 255, .08);
-    border: 1px solid rgba(0, 209, 255, .16);
+    background: rgba(47, 224, 176, .08);
+    border: 1px solid rgba(47, 224, 176, .16);
 }
 
 .odo-panel-title h2 {
@@ -327,7 +328,7 @@ body { background: var(--odo-bg); }
     padding: 14px;
     margin-bottom: 14px;
     border-radius: 14px;
-    background: rgba(8, 16, 40, .58);
+    background: rgba(8, 11, 16, .58);
     border: 1px solid rgba(144, 165, 204, .12);
 }
 
@@ -341,7 +342,7 @@ body { background: var(--odo-bg); }
     color: #fff;
     font-size: 1.35rem;
     font-weight: 850;
-    background: linear-gradient(135deg, rgba(91, 95, 255, .95), rgba(0, 209, 255, .78));
+    background: linear-gradient(135deg, rgba(139, 126, 255, .95), rgba(47, 224, 176, .78));
 }
 
 .odo-selected-tooth span {
@@ -392,8 +393,8 @@ body { background: var(--odo-bg); }
     margin: 0 0 14px;
     border-radius: 12px;
     color: rgba(242, 247, 255, .80);
-    background: rgba(0, 209, 255, .06);
-    border: 1px solid rgba(0, 209, 255, .13);
+    background: rgba(47, 224, 176, .06);
+    border: 1px solid rgba(47, 224, 176, .13);
     font-size: .84rem;
     line-height: 1.55;
 }
@@ -407,9 +408,9 @@ body { background: var(--odo-bg); }
     margin: 4px auto 18px;
     border-radius: 50%;
     background:
-        radial-gradient(circle at center, #0b173a 0 55%, transparent 56%),
+        radial-gradient(circle at center, #0F141C 0 55%, transparent 56%),
         conic-gradient(var(--odo-green) var(--angle), rgba(144, 165, 204, .16) 0);
-    box-shadow: inset 0 0 0 1px rgba(0, 209, 255, .13), 0 20px 42px rgba(0, 0, 0, .18);
+    box-shadow: inset 0 0 0 1px rgba(47, 224, 176, .13), 0 20px 42px rgba(0, 0, 0, .18);
 }
 
 .odo-health-ring strong {
@@ -461,7 +462,7 @@ body { background: var(--odo-bg); }
     justify-content: space-between;
     gap: 12px;
     padding: 14px;
-    border-bottom: 1px solid rgba(0, 209, 255, .11);
+    border-bottom: 1px solid rgba(47, 224, 176, .11);
 }
 
 .odo-segmented {
@@ -469,7 +470,7 @@ body { background: var(--odo-bg); }
     gap: 6px;
     padding: 6px;
     border-radius: 13px;
-    background: rgba(8, 16, 40, .70);
+    background: rgba(8, 11, 16, .70);
     border: 1px solid rgba(144, 165, 204, .12);
 }
 
@@ -483,8 +484,8 @@ body { background: var(--odo-bg); }
 
 .odo-segmented button.active {
     color: #fff;
-    background: rgba(0, 209, 255, .10);
-    border-color: rgba(0, 209, 255, .22);
+    background: rgba(47, 224, 176, .10);
+    border-color: rgba(47, 224, 176, .22);
 }
 
 .odo-icon-btn {
@@ -492,13 +493,13 @@ body { background: var(--odo-bg); }
     height: 38px;
     border: 1px solid rgba(144, 165, 204, .14);
     color: var(--odo-muted);
-    background: rgba(8, 16, 40, .58);
+    background: rgba(8, 11, 16, .58);
 }
 
 .odo-icon-btn:hover {
     color: #fff;
-    border-color: rgba(0, 209, 255, .28);
-    background: rgba(0, 209, 255, .08);
+    border-color: rgba(47, 224, 176, .28);
+    background: rgba(47, 224, 176, .08);
 }
 
 #zoomRange {
@@ -515,9 +516,9 @@ body { background: var(--odo-bg); }
     padding: 16px;
     perspective: 1200px;
     background:
-        linear-gradient(rgba(0, 209, 255, .04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 209, 255, .04) 1px, transparent 1px),
-        radial-gradient(circle at center, rgba(0, 209, 255, .10), transparent 52%);
+        linear-gradient(rgba(47, 224, 176, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47, 224, 176, .04) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(47, 224, 176, .10), transparent 52%);
     background-size: 38px 38px, 38px 38px, auto;
 }
 
@@ -526,7 +527,7 @@ body { background: var(--odo-bg); }
     width: min(76%, 880px);
     aspect-ratio: 1 / .45;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 209, 255, .18), transparent 68%);
+    background: radial-gradient(circle, rgba(47, 224, 176, .18), transparent 68%);
     filter: blur(6px);
     pointer-events: none;
 }
@@ -553,7 +554,7 @@ body { background: var(--odo-bg); }
 
 .odo-arch-line {
     fill: none;
-    stroke: rgba(0, 209, 255, .18);
+    stroke: rgba(47, 224, 176, .18);
     stroke-width: 2;
     stroke-dasharray: 10 12;
 }
@@ -665,7 +666,7 @@ body { background: var(--odo-bg); }
     flex-wrap: wrap;
     gap: 9px;
     padding: 14px;
-    border-top: 1px solid rgba(0, 209, 255, .11);
+    border-top: 1px solid rgba(47, 224, 176, .11);
 }
 
 .odo-legend-item {
@@ -693,8 +694,8 @@ body { background: var(--odo-bg); }
     padding: 10px 12px;
     border-radius: 12px;
     color: var(--odo-text);
-    background: rgba(8, 16, 40, .92);
-    border: 1px solid rgba(0, 209, 255, .18);
+    background: rgba(8, 11, 16, .92);
+    border: 1px solid rgba(47, 224, 176, .18);
     box-shadow: 0 18px 44px rgba(0, 0, 0, .30);
     backdrop-filter: blur(12px);
     pointer-events: none;
@@ -723,15 +724,15 @@ body { background: var(--odo-bg); }
 
 .odo-modal .modal-content {
     color: var(--odo-text);
-    background: linear-gradient(180deg, rgba(17, 28, 68, .98), rgba(8, 16, 40, .98));
-    border: 1px solid rgba(0, 209, 255, .18);
+    background: linear-gradient(180deg, rgba(22, 29, 40, .98), rgba(8, 11, 16, .98));
+    border: 1px solid rgba(47, 224, 176, .18);
     border-radius: 16px;
     box-shadow: 0 28px 76px rgba(0, 0, 0, .42);
 }
 
 .odo-modal .modal-header,
 .odo-modal .modal-footer {
-    border-color: rgba(0, 209, 255, .12);
+    border-color: rgba(47, 224, 176, .12);
 }
 
 .odo-modal-title {
@@ -747,8 +748,8 @@ body { background: var(--odo-bg); }
     place-items: center;
     border-radius: 13px;
     color: var(--odo-cyan);
-    background: rgba(0, 209, 255, .08);
-    border: 1px solid rgba(0, 209, 255, .16);
+    background: rgba(47, 224, 176, .08);
+    border: 1px solid rgba(47, 224, 176, .16);
 }
 
 .odo-modal-title h5 {
@@ -788,7 +789,7 @@ body { background: var(--odo-bg); }
     border-radius: 11px;
     border: 1px solid rgba(144, 165, 204, .18);
     color: var(--odo-text);
-    background: rgba(8, 16, 40, .70);
+    background: rgba(8, 11, 16, .70);
 }
 
 .odo-field textarea {
@@ -800,9 +801,9 @@ body { background: var(--odo-bg); }
 .odo-field select:focus,
 .odo-field textarea:focus {
     color: var(--odo-text);
-    background: rgba(8, 16, 40, .94);
-    border-color: rgba(0, 209, 255, .60);
-    box-shadow: 0 0 0 4px rgba(0, 209, 255, .08);
+    background: rgba(8, 11, 16, .94);
+    border-color: rgba(47, 224, 176, .60);
+    box-shadow: 0 0 0 4px rgba(47, 224, 176, .08);
 }
 
 .odo-face-section {
@@ -834,7 +835,7 @@ body { background: var(--odo-bg); }
     padding: 0 12px;
     border-radius: 10px;
     color: var(--odo-muted);
-    background: rgba(8, 16, 40, .62);
+    background: rgba(8, 11, 16, .62);
     border: 1px solid rgba(144, 165, 204, .14);
     font-size: .84rem;
     transition: color .18s ease, background .18s ease, border-color .18s ease;
@@ -842,8 +843,8 @@ body { background: var(--odo-bg); }
 
 .odo-face-chip input:checked + span {
     color: #fff;
-    background: rgba(0, 209, 255, .11);
-    border-color: rgba(0, 209, 255, .32);
+    background: rgba(47, 224, 176, .11);
+    border-color: rgba(47, 224, 176, .32);
 }
 
 @media (max-width: 1280px) {

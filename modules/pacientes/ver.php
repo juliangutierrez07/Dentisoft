@@ -180,7 +180,7 @@ $portalUltimoAcceso = formatDate($paciente['portal_ultimo_acceso'] ?? null, 'Nun
                     <div class="patient-hero-stats">
                         <div>
                             <small>Edad</small>
-                            <strong><?= h($edad) ?></strong>
+                            <strong class="mono"><?= h($edad) ?></strong>
                         </div>
                         <div>
                             <small>Estado</small>
@@ -188,7 +188,7 @@ $portalUltimoAcceso = formatDate($paciente['portal_ultimo_acceso'] ?? null, 'Nun
                         </div>
                         <div>
                             <small>Registrado</small>
-                            <strong><?= h($registroFecha) ?></strong>
+                            <strong class="mono"><?= h($registroFecha) ?></strong>
                         </div>
                     </div>
                 </div>

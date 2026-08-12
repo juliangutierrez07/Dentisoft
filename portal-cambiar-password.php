@@ -71,16 +71,20 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar contrasena - Portal del Paciente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(135deg,#07111f,#0f2a44);color:#eaf3ff}
-        .portal-card{width:min(480px,calc(100% - 32px));padding:34px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(8,19,35,.78);box-shadow:0 28px 70px rgba(0,0,0,.35);backdrop-filter:blur(18px)}
-        h1{margin:0 0 8px;font-size:1.8rem;line-height:1.1}
+        body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(135deg,#080B10,#161D28);color:#eaf3ff}
+        .portal-card{width:min(480px,calc(100% - 32px));padding:34px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(15,20,28,.78);box-shadow:0 28px 70px rgba(0,0,0,.35);backdrop-filter:blur(18px)}
+        h1{margin:0 0 8px;font-family:'Fraunces',serif;font-weight:500;font-size:1.8rem;line-height:1.1}
         p{margin:0 0 24px;color:#a9b9d0}
         label{display:grid;gap:8px;margin-bottom:16px;color:#d7e5f8;font-weight:700;font-size:.92rem}
         input{width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(255,255,255,.06);color:#fff;padding:13px 14px;font:inherit}
-        input:focus{outline:none;border-color:#35d0ff;box-shadow:0 0 0 3px rgba(53,208,255,.16)}
-        button{width:100%;min-height:46px;border:0;border-radius:10px;background:linear-gradient(135deg,#0891b2,#2563eb);color:#fff;font-weight:800;cursor:pointer}
-        .error{margin-bottom:16px;padding:12px;border-radius:10px;color:#fecaca;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.28)}
+        input:focus{outline:none;border-color:#2FE0B0;box-shadow:0 0 0 3px rgba(47,224,176,.16)}
+        button{width:100%;min-height:46px;border:0;border-radius:10px;background:#2FE0B0;color:#04211A;font-weight:800;cursor:pointer;transition:filter .2s ease}
+        button:hover{filter:brightness(1.08)}
+        .error{margin-bottom:16px;padding:12px;border-radius:10px;color:#E6AEB8;background:rgba(217,97,95,.12);border:1px solid rgba(217,97,95,.28)}
     </style>
 </head>
 <body>

@@ -30,12 +30,13 @@ try {
     <title><?= htmlspecialchars($paginaTitulo) ?> — <?= APP_NAME ?></title>
     <meta name="description" content="<?= APP_DESCRIPTION ?> - <?= htmlspecialchars($paginaTitulo) ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?= BASE_URL ?>/assets/css/style.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>/assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>" rel="stylesheet">
     <?php if (isset($cssAdicional)): ?>
-        <link href="<?= BASE_URL ?>/assets/css/<?= $cssAdicional ?>" rel="stylesheet">
+        <?php $cssAdicionalPath = __DIR__ . '/../assets/css/' . $cssAdicional; ?>
+        <link href="<?= BASE_URL ?>/assets/css/<?= $cssAdicional ?>?v=<?= is_file($cssAdicionalPath) ? filemtime($cssAdicionalPath) : time() ?>" rel="stylesheet">
     <?php endif; ?>
 </head>
 <body>

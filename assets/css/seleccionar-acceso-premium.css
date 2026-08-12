@@ -4,15 +4,15 @@
  */
 
 :root {
-    --access-bg: #0a1428;
-    --access-bg-light: #0f2a44;
-    --access-navy: #0a192f;
-    --access-cyan: #00d1ff;
-    --access-cyan-glow: rgba(0, 209, 255, 0.4);
-    --access-blue: #5b7cfa;
-    --access-blue-glow: rgba(91, 124, 250, 0.3);
-    --access-green: #22c55e;
-    --access-green-glow: rgba(34, 197, 94, 0.3);
+    --access-bg: #080B10;
+    --access-bg-light: #161D28;
+    --access-navy: #0F141C;
+    --access-cyan: #2FE0B0;
+    --access-cyan-glow: rgba(47, 224, 176, 0.4);
+    --access-blue: #8B7EFF;
+    --access-blue-glow: rgba(139, 126, 255, 0.3);
+    --access-green: #8B7EFF;
+    --access-green-glow: rgba(139, 126, 255, 0.3);
     --access-text: #eaf3ff;
     --access-muted: #94a3b8;
     --access-glass: rgba(15, 23, 42, 0.65);
@@ -86,7 +86,7 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 209, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(47, 224, 176, 0.3);
 }
 
 .access-brand span {
@@ -131,8 +131,9 @@ body {
 }
 
 .access-title {
+    font-family: 'Fraunces', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 900;
+    font-weight: 500;
     color: #ffffff;
     margin-bottom: 16px;
     line-height: 1.2;
@@ -164,7 +165,7 @@ body {
     backdrop-filter: blur(24px);
     box-shadow: 
         0 32px 80px rgba(0, 0, 0, 0.4),
-        0 0 60px rgba(0, 209, 255, 0.1),
+        0 0 60px rgba(47, 224, 176, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.4s ease;
     display: flex;
@@ -190,7 +191,7 @@ body {
     transform: translateY(-8px);
     box-shadow: 
         0 40px 100px rgba(0, 0, 0, 0.5),
-        0 0 80px rgba(0, 209, 255, 0.15),
+        0 0 80px rgba(47, 224, 176, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
@@ -227,12 +228,12 @@ body {
     background: rgba(255, 255, 255, 0.05);
     font-size: 2.5rem;
     color: var(--access-cyan);
-    box-shadow: 0 0 40px rgba(0, 209, 255, 0.2);
+    box-shadow: 0 0 40px rgba(47, 224, 176, 0.2);
 }
 
 .access-card-paciente .access-card-icon {
     color: var(--access-green);
-    box-shadow: 0 0 40px rgba(34, 197, 94, 0.2);
+    box-shadow: 0 0 40px rgba(139, 126, 255, 0.2);
 }
 
 .access-card-content {
@@ -240,8 +241,9 @@ body {
 }
 
 .access-card-title {
+    font-family: 'Fraunces', serif;
     font-size: 1.8rem;
-    font-weight: 900;
+    font-weight: 500;
     color: #ffffff;
     margin-bottom: 12px;
 }
@@ -297,40 +299,28 @@ body {
 }
 
 .access-btn-primary {
-    background: linear-gradient(135deg, #0891b2, #2563eb);
-    color: #ffffff;
+    background: var(--access-cyan);
+    color: #04211A;
     border: none;
-}
-
-.access-btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #2563eb, #0891b2);
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
 .access-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4);
-}
-
-.access-btn-primary:hover::before {
-    opacity: 1;
+    filter: brightness(1.08);
+    box-shadow: 0 12px 28px rgba(47, 224, 176, 0.4);
 }
 
 .access-btn-secondary {
-    background: rgba(34, 197, 94, 0.1);
+    background: rgba(139, 126, 255, 0.1);
     color: var(--access-green);
-    border: 2px solid rgba(34, 197, 94, 0.3);
+    border: 2px solid rgba(139, 126, 255, 0.3);
 }
 
 .access-btn-secondary:hover {
-    background: rgba(34, 197, 94, 0.15);
-    border-color: rgba(34, 197, 94, 0.5);
+    background: rgba(139, 126, 255, 0.15);
+    border-color: rgba(139, 126, 255, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 12px 28px rgba(139, 126, 255, 0.3);
 }
 
 .access-card-btn-content {

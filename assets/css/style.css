@@ -40,14 +40,14 @@
     --border-light: rgba(99, 102, 241, 0.15);
 
     /* Estados */
-    --success: #10b981;
-    --success-bg: rgba(16, 185, 129, 0.1);
-    --warning: #f59e0b;
-    --warning-bg: rgba(245, 158, 11, 0.1);
-    --danger: #ef4444;
-    --danger-bg: rgba(239, 68, 68, 0.1);
-    --info: #3b82f6;
-    --info-bg: rgba(59, 130, 246, 0.1);
+    --success: #2FAF7C;
+    --success-bg: rgba(47, 175, 124, 0.1);
+    --warning: #D9A247;
+    --warning-bg: rgba(217, 162, 71, 0.1);
+    --danger: #D9615F;
+    --danger-bg: rgba(217, 97, 95, 0.1);
+    --info: #5C87CE;
+    --info-bg: rgba(92, 135, 206, 0.1);
 
     /* Layout */
     --sidebar-width: 260px;
@@ -65,6 +65,17 @@
 
     /* Transiciones */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Tokens del sistema de diseño (landing / home.css) */
+    --void: #080B10;
+    --surface: #0F141C;
+    --surface-2: #161D28;
+    --surface-3: #1C2531;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hi: rgba(255, 255, 255, 0.14);
+    --mint: #2FE0B0;
+    --mint-dim: #1F9E7C;
+    --violet: #8B7EFF;
 }
 
 /* ─── Reset & Base ────────────────────────────────────────── */
@@ -95,6 +106,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+/* Utilidad compartida: cifras, fechas y horas en JetBrains Mono
+   (sistema de diseño de la landing, extendido a todos los módulos) */
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
 /* ─── Scrollbar personalizado ─────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-sidebar); }
@@ -111,10 +128,10 @@ h1, h2, h3, h4, h5, h6 {
     left: var(--sidebar-width);
     right: 0;
     height: var(--navbar-height);
-    background: rgba(15, 23, 42, 0.94);
+    background: rgba(8, 11, 16, 0.82);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -212,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: var(--violet);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,8 +318,8 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: var(--sidebar-width);
     height: 100vh;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.92));
-    border-right: 1px solid rgba(99, 102, 241, 0.12);
+    background: linear-gradient(180deg, var(--surface), var(--void));
+    border-right: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     z-index: 1100;
@@ -312,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar-header {
     padding: 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
 }
 
 .sidebar-logo {
@@ -324,7 +341,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo-icon {
     width: 42px;
     height: 42px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(8, 145, 178, 0.95));
+    background: linear-gradient(135deg, var(--mint), var(--violet));
     border-radius: 14px;
     display: flex;
     align-items: center;
@@ -337,8 +354,9 @@ h1, h2, h3, h4, h5, h6 {
 .logo-text { line-height: 1.2; }
 .logo-title {
     display: block;
+    font-family: 'Fraunces', serif;
     font-size: 1.15rem;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--text-primary);
     letter-spacing: -0.3px;
 }
@@ -393,12 +411,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover {
     color: var(--text-primary);
-    background: rgba(148, 163, 184, 0.08);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-link.active {
     color: #eef2ff;
-    background: rgba(99, 102, 241, 0.14);
+    background: rgba(47, 224, 176, 0.14);
     font-weight: 600;
 }
 .nav-link.active::before {
@@ -408,13 +426,13 @@ h1, h2, h3, h4, h5, h6 {
     top: 4px;
     bottom: 4px;
     width: 3px;
-    background: var(--primary);
+    background: var(--mint);
     border-radius: 0 3px 3px 0;
 }
 
 .sidebar-footer {
     padding: 16px 20px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--border);
 }
 
 .sidebar-user-mini {
@@ -427,7 +445,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: var(--violet);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -876,7 +894,7 @@ h1, h2, h3, h4, h5, h6 {
 .profile-head { background: linear-gradient(90deg, rgba(99,102,241,0.06), rgba(8,145,178,0.03)); }
 .user-avatar-lg { width: 44px; height: 44px; border-radius: 10px; font-size: 1rem; }
 .user-avatar-xl { width: 64px; height: 64px; border-radius: 12px; font-size: 1.35rem; display:flex; align-items:center; justify-content:center; }
-.user-avatar-xl, .user-avatar-lg { box-shadow: var(--shadow-glow); color:#fff; background: linear-gradient(135deg, var(--primary), var(--accent)); }
+.user-avatar-xl, .user-avatar-lg { box-shadow: var(--shadow-glow); color:#fff; background: var(--violet); }
 
 .profile-name { font-weight: 700; color: #FFFFFF; font-size: 1.04rem; }
 .profile-email { color: rgba(255,255,255,0.75); font-weight: 500; font-size: 0.95rem; }

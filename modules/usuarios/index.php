@@ -69,10 +69,10 @@ $stats = [
     </section>
 
     <section class="users-kpis">
-        <article><span><i class="bi bi-people"></i></span><div><small>Total usuarios</small><strong><?= number_format($stats['total']) ?></strong></div></article>
-        <article><span><i class="bi bi-person-check"></i></span><div><small>Activos</small><strong><?= number_format($stats['activos']) ?></strong></div></article>
-        <article><span><i class="bi bi-stars"></i></span><div><small>Administradores</small><strong><?= number_format($stats['admins']) ?></strong></div></article>
-        <article><span><i class="bi bi-heart-pulse"></i></span><div><small>Equipo clinico</small><strong><?= number_format($stats['clinicos']) ?></strong></div></article>
+        <article><span><i class="bi bi-people"></i></span><div><small>Total usuarios</small><strong class="mono"><?= number_format($stats['total']) ?></strong></div></article>
+        <article><span><i class="bi bi-person-check"></i></span><div><small>Activos</small><strong class="mono"><?= number_format($stats['activos']) ?></strong></div></article>
+        <article><span><i class="bi bi-stars"></i></span><div><small>Administradores</small><strong class="mono"><?= number_format($stats['admins']) ?></strong></div></article>
+        <article><span><i class="bi bi-heart-pulse"></i></span><div><small>Equipo clinico</small><strong class="mono"><?= number_format($stats['clinicos']) ?></strong></div></article>
     </section>
 
     <section class="users-grid" aria-label="Lista de usuarios">

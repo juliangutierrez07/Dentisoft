@@ -150,9 +150,9 @@ try {
     $tratamientosFinalizados = (int) $db->query("SELECT COUNT(*) FROM planes_tratamiento WHERE estado = 'completado'")->fetchColumn();
 
     $kpis = [
-        ['label' => 'Total pacientes', 'value' => $totalPacientes, 'type' => 'number', 'icon' => 'bi-people', 'tone' => 'cyan', 'trend' => trend($pacientesNuevos, $pacientesNuevosAnterior), 'hint' => 'Base activa registrada'],
+        ['label' => 'Total pacientes', 'value' => $totalPacientes, 'type' => 'number', 'icon' => 'bi-people', 'tone' => 'blue', 'trend' => trend($pacientesNuevos, $pacientesNuevosAnterior), 'hint' => 'Base activa registrada'],
         ['label' => 'Total citas', 'value' => $totalCitas, 'type' => 'number', 'icon' => 'bi-calendar2-week', 'tone' => 'blue', 'trend' => trend($citasMes, $citasMesAnterior), 'hint' => 'Historial de agenda'],
-        ['label' => 'Citas del mes', 'value' => $citasMes, 'type' => 'number', 'icon' => 'bi-calendar-check', 'tone' => 'green', 'trend' => trend($citasMes, $citasMesAnterior), 'hint' => 'Actividad mensual'],
+        ['label' => 'Citas del mes', 'value' => $citasMes, 'type' => 'number', 'icon' => 'bi-calendar-check', 'tone' => 'yellow', 'trend' => trend($citasMes, $citasMesAnterior), 'hint' => 'Actividad mensual'],
         ['label' => 'Ingresos del mes', 'value' => $ingresosMes, 'type' => 'money', 'icon' => 'bi-graph-up-arrow', 'tone' => 'purple', 'trend' => trend($ingresosMes, $ingresosMesAnterior), 'hint' => 'Facturacion actual'],
         ['label' => 'Ingresos totales', 'value' => $ingresosTotales, 'type' => 'money', 'icon' => 'bi-cash-stack', 'tone' => 'cyan', 'trend' => ['label' => 'Global', 'tone' => 'flat'], 'hint' => 'Acumulado historico'],
         ['label' => 'Tratamientos activos', 'value' => $tratamientosActivos, 'type' => 'number', 'icon' => 'bi-clipboard2-pulse', 'tone' => 'yellow', 'trend' => ['label' => 'En curso', 'tone' => 'flat'], 'hint' => 'Planes pendientes o activos'],
@@ -356,7 +356,7 @@ foreach ($chartData as $key => $rows) {
                 <span><i class="bi <?= esc($kpi['icon']) ?>"></i></span>
                 <div>
                     <small><?= esc($kpi['label']) ?></small>
-                    <strong data-counter="<?= esc($kpi['value']) ?>" data-counter-type="<?= esc($kpi['type']) ?>"><?= $kpi['type'] === 'money' ? money($kpi['value']) : number_format((float) $kpi['value'], 0, ',', '.') ?></strong>
+                    <strong class="mono" data-counter="<?= esc($kpi['value']) ?>" data-counter-type="<?= esc($kpi['type']) ?>"><?= $kpi['type'] === 'money' ? money($kpi['value']) : number_format((float) $kpi['value'], 0, ',', '.') ?></strong>
                     <em class="trend-<?= esc($kpi['trend']['tone']) ?>"><?= esc($kpi['trend']['label']) ?> · <?= esc($kpi['hint']) ?></em>
                 </div>
             </article>

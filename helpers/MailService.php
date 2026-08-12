@@ -318,7 +318,7 @@ class MailService
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            background: linear-gradient(135deg, #8B7EFF, #2FE0B0);
             color: white;
             padding: 30px;
             text-align: center;
@@ -338,7 +338,7 @@ class MailService
         }
         .details {
             background-color: #f7fafc;
-            border-left: 4px solid #7c3aed;
+            border-left: 4px solid #8B7EFF;
             padding: 20px;
             margin: 20px 0;
             border-radius: 4px;
@@ -366,12 +366,12 @@ class MailService
             font-size: 14px;
         }
         .footer a {
-            color: #7df9ff;
+            color: #2FE0B0;
             text-decoration: none;
         }
         .button {
             display: inline-block;
-            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            background: linear-gradient(135deg, #8B7EFF, #2FE0B0);
             color: white;
             padding: 12px 24px;
             text-decoration: none;

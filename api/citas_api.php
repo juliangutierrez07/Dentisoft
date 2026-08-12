@@ -48,12 +48,12 @@ function validCalendarDateParam(?string $value): ?string {
 
 function appointmentStatusColor(string $estado): array {
     return match ($estado) {
-        'confirmada' => ['#22e6a8', '#062f27'],
-        'pendiente' => ['#f8c46c', '#3a2607'],
-        'cancelada' => ['#ff7373', '#3b1118'],
-        'atendida' => ['#00d1ff', '#082a3f'],
+        'confirmada' => ['#2FAF7C', '#0F241B'],
+        'pendiente' => ['#D9A247', '#2A2011'],
+        'cancelada' => ['#D9615F', '#2A1517'],
+        'atendida' => ['#5C87CE', '#141E2E'],
         'no_asistio' => ['#a8b3c7', '#1d2533'],
-        default => ['#5b7cfa', '#111b3e'],
+        default => ['#8B7EFF', '#1C1A2E'],
     };
 }
 

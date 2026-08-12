@@ -199,17 +199,18 @@ function formatPortalDate(?string $date): string {
                                 </td>
                                 <td class="col-email"><span class="patient-email" title="<?= esc($paciente['email'] ?: '-') ?>"><?= esc($paciente['email'] ?: '-') ?></span></td>
                                 <td class="col-city"><?= esc($paciente['ciudad'] ?: '-') ?></td>
-                                <td class="col-eps"><span class="patient-chip"><?= esc($paciente['eps'] ?: 'Sin EPS') ?></span></td>
+                                <td class="col-eps"><?= esc($paciente['eps'] ?: 'Sin EPS') ?></td>
                                 <td class="col-status">
                                     <span class="patient-status patient-status-<?= esc($paciente['estado'] ?: 'inactivo') ?>">
                                         <span></span><?= esc(estadoLabel((string) ($paciente['estado'] ?? 'inactivo'))) ?>
                                     </span>
                                 </td>
                                 <td class="col-portal">
-                                    <span class="patient-portal-badge <?= !empty($paciente['portal_acceso_id']) ? 'has-access' : 'no-access' ?>">
-                                        <i class="bi <?= !empty($paciente['portal_acceso_id']) ? 'bi-check-circle' : 'bi-dash-circle' ?>" aria-hidden="true"></i>
-                                        <?= !empty($paciente['portal_acceso_id']) ? 'Si' : 'No' ?>
-                                    </span>
+                                    <?php if (!empty($paciente['portal_acceso_id'])): ?>
+                                        <i class="bi bi-check-circle-fill patient-portal-icon patient-portal-icon-active" title="Con acceso al portal" aria-label="Con acceso al portal"></i>
+                                    <?php else: ?>
+                                        <i class="bi bi-dash-circle patient-portal-icon patient-portal-icon-inactive" title="Sin acceso al portal" aria-label="Sin acceso al portal"></i>
+                                    <?php endif; ?>
                                 </td>
                                 <td class="col-portal-last"><?= esc(formatPortalDate($paciente['portal_ultimo_acceso'] ?? null)) ?></td>
                                 <td class="col-account">

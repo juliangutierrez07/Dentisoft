@@ -269,23 +269,23 @@ $initials = mb_strtoupper(
 
 .email-validation-indicator.valid {
     opacity: 1;
-    background: rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: rgba(47, 175, 124, 0.16);
+    color: #2FAF7C;
+    border: 1px solid rgba(47, 175, 124, 0.3);
 }
 
 .email-validation-indicator.invalid {
     opacity: 1;
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(217, 97, 95, 0.16);
+    color: #D9615F;
+    border: 1px solid rgba(217, 97, 95, 0.3);
 }
 
 .email-validation-indicator.changed {
     opacity: 1;
-    background: rgba(99, 102, 241, 0.2);
-    color: #6366f1;
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: rgba(139, 126, 255, 0.16);
+    color: #8B7EFF;
+    border: 1px solid rgba(139, 126, 255, 0.3);
 }
 
 .email-validation-message {
@@ -302,20 +302,20 @@ $initials = mb_strtoupper(
 }
 
 .email-validation-message.success {
-    color: #10b981;
+    color: #2FAF7C;
 }
 
 .email-validation-message.error {
-    color: #ef4444;
+    color: #D9615F;
 }
 
 .email-validation-message.warning {
-    color: #f59e0b;
+    color: #D9A247;
 }
 
 .email-input-wrapper input:focus {
-    border-color: rgba(99, 102, 241, 0.5);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    border-color: rgba(47, 224, 176, 0.5);
+    box-shadow: 0 0 0 3px rgba(47, 224, 176, 0.1);
 }
 
 .email-input-wrapper input.valid {

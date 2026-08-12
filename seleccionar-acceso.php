@@ -16,8 +16,11 @@ $loginPaciente = BASE_URL . '/portal-login.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleccionar Tipo de Acceso - DentiSoft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?= BASE_URL ?>/assets/css/seleccionar-acceso-premium.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>/assets/css/seleccionar-acceso-premium.css?v=<?= filemtime(__DIR__ . '/assets/css/seleccionar-acceso-premium.css') ?>" rel="stylesheet">
 </head>
 <body>
     <div class="access-selector-container">

@@ -113,8 +113,11 @@ $nombrePaciente = trim((string) (($paciente['nombre'] ?? '') . ' ' . ($paciente[
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Facturas - Portal del Paciente | DentiSoft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?= BASE_URL ?>/assets/css/portal-paciente-premium.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>/assets/css/portal-paciente-premium.css?v=<?= filemtime(__DIR__ . '/../assets/css/portal-paciente-premium.css') ?>" rel="stylesheet">
 </head>
 <body>
     <div class="portal-shell">
@@ -179,17 +182,17 @@ $nombrePaciente = trim((string) (($paciente['nombre'] ?? '') . ' ' . ($paciente[
                                         Dr(a). <?= portalEsc($factura['odontologo_nombre'] . ' ' . $factura['odontologo_apellido']) ?>
                                     </div>
                                     <div class="portal-list-meta">
-                                        <span><i class="bi bi-calendar"></i> <?= portalDate($factura['fecha_emision']) ?></span>
-                                        <span><i class="bi bi-cash-coin"></i> <?= portalCurrency($factura['total']) ?></span>
+                                        <span class="mono"><i class="bi bi-calendar"></i> <?= portalDate($factura['fecha_emision']) ?></span>
+                                        <span class="mono"><i class="bi bi-cash-coin"></i> <?= portalCurrency($factura['total']) ?></span>
                                         <span class="portal-list-badge <?= estadoFacturaClass($factura['estado']) ?>">
                                             <?= portalEsc(estadoFacturaLabel($factura['estado'])) ?>
                                         </span>
                                     </div>
                                     <div class="portal-list-meta" style="margin-top: 8px;">
-                                        <span><i class="bi bi-cash"></i> Pagado: <?= portalCurrency($factura['total_pagado']) ?></span>
-                                        <span><i class="bi bi-exclamation-circle"></i> Saldo: <?= portalCurrency($factura['saldo_pendiente']) ?></span>
+                                        <span class="mono"><i class="bi bi-cash"></i> Pagado: <?= portalCurrency($factura['total_pagado']) ?></span>
+                                        <span class="mono"><i class="bi bi-exclamation-circle"></i> Saldo: <?= portalCurrency($factura['saldo_pendiente']) ?></span>
                                         <?php if ($factura['fecha_vencimiento']): ?>
-                                            <span><i class="bi bi-calendar-x"></i> Vence: <?= portalDate($factura['fecha_vencimiento']) ?></span>
+                                            <span class="mono"><i class="bi bi-calendar-x"></i> Vence: <?= portalDate($factura['fecha_vencimiento']) ?></span>
                                         <?php endif; ?>
                                     </div>
                                     <?php if ($factura['notas']): ?>

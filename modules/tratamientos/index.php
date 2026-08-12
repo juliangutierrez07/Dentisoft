@@ -169,23 +169,23 @@ function pageUrl(int $page): string {
     <section class="treatment-stats mb-4" aria-label="Resumen de tratamientos">
         <article class="treatment-stat stat-active">
             <span><i class="bi bi-activity"></i></span>
-            <div><small>Tratamientos activos</small><strong><?= number_format($stats['activos']) ?></strong></div>
+            <div><small>Tratamientos activos</small><strong class="mono"><?= number_format($stats['activos']) ?></strong></div>
         </article>
         <article class="treatment-stat stat-pending">
             <span><i class="bi bi-hourglass-split"></i></span>
-            <div><small>Pendientes</small><strong><?= number_format($stats['pendientes']) ?></strong></div>
+            <div><small>Pendientes</small><strong class="mono"><?= number_format($stats['pendientes']) ?></strong></div>
         </article>
         <article class="treatment-stat stat-done">
             <span><i class="bi bi-check2-circle"></i></span>
-            <div><small>Finalizados</small><strong><?= number_format($stats['finalizados']) ?></strong></div>
+            <div><small>Finalizados</small><strong class="mono"><?= number_format($stats['finalizados']) ?></strong></div>
         </article>
         <article class="treatment-stat stat-money">
             <span><i class="bi bi-cash-coin"></i></span>
-            <div><small>Ingresos estimados</small><strong>$<?= number_format($stats['ingresos'], 0, ',', '.') ?></strong></div>
+            <div><small>Ingresos estimados</small><strong class="mono">$<?= number_format($stats['ingresos'], 0, ',', '.') ?></strong></div>
         </article>
         <article class="treatment-stat stat-patients">
             <span><i class="bi bi-people"></i></span>
-            <div><small>Pacientes en tratamiento</small><strong><?= number_format($stats['pacientes_tratamiento']) ?></strong></div>
+            <div><small>Pacientes en tratamiento</small><strong class="mono"><?= number_format($stats['pacientes_tratamiento']) ?></strong></div>
         </article>
     </section>
 
@@ -203,7 +203,7 @@ function pageUrl(int $page): string {
                 <option value="completado" <?= $statusFilter === 'completado' ? 'selected' : '' ?>>Finalizado</option>
                 <option value="cancelado" <?= $statusFilter === 'cancelado' ? 'selected' : '' ?>>Cancelado</option>
             </select>
-            <button type="submit" class="btn treatment-primary"><i class="bi bi-funnel"></i> Filtrar</button>
+            <button type="submit" class="btn treatment-secondary"><i class="bi bi-funnel"></i> Filtrar</button>
         </form>
         <div class="treatment-chips" aria-label="Filtros rapidos">
             <a class="<?= $statusFilter === 'pendiente' ? 'active' : '' ?>" href="<?= filterUrl(['estado' => 'pendiente']) ?>">Pendientes</a>

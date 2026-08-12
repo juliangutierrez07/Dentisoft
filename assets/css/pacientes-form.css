@@ -1,14 +1,14 @@
 :root {
-    --pf-bg: #081028;
-    --pf-card: #111C44;
-    --pf-card-2: #0B1638;
-    --pf-cyan: #00D1FF;
-    --pf-blue: #5B5FFF;
-    --pf-green: #00E0A4;
+    --pf-bg: var(--void);
+    --pf-card: var(--surface-2);
+    --pf-card-2: var(--surface);
+    --pf-cyan: var(--mint);
+    --pf-blue: var(--violet);
+    --pf-green: #43B075;
     --pf-text: #F2F7FF;
     --pf-muted: #92A6CC;
-    --pf-border: rgba(0, 209, 255, 0.13);
-    --pf-border-strong: rgba(91, 95, 255, 0.25);
+    --pf-border: rgba(47, 224, 176, 0.13);
+    --pf-border-strong: rgba(139, 126, 255, 0.25);
 }
 
 body {
@@ -17,8 +17,8 @@ body {
 
 .main-content {
     background:
-        radial-gradient(circle at 20% 0%, rgba(0, 209, 255, 0.08), transparent 26%),
-        radial-gradient(circle at 90% 14%, rgba(91, 95, 255, 0.12), transparent 26%),
+        radial-gradient(circle at 20% 0%, rgba(47, 224, 176, 0.08), transparent 26%),
+        radial-gradient(circle at 90% 14%, rgba(139, 126, 255, 0.12), transparent 26%),
         var(--pf-bg);
 }
 
@@ -53,11 +53,12 @@ body {
 }
 
 .patient-form-hero h1 {
+    font-family: 'Fraunces', serif;
     margin: 0;
     color: #FFFFFF;
     font-size: 2.05rem;
     line-height: 1.15;
-    font-weight: 780;
+    font-weight: 500;
 }
 
 .patient-form-hero p {
@@ -87,14 +88,14 @@ body {
     padding: 0 16px;
     color: var(--pf-muted);
     border: 1px solid rgba(146, 166, 204, 0.18);
-    background: rgba(17, 28, 68, 0.62);
+    background: rgba(22, 29, 40, 0.62);
 }
 
 .patient-back-btn:hover,
 .patient-secondary-btn:hover {
     color: #FFFFFF;
-    border-color: rgba(0, 209, 255, 0.34);
-    background: rgba(0, 209, 255, 0.08);
+    border-color: rgba(47, 224, 176, 0.34);
+    background: rgba(47, 224, 176, 0.08);
     transform: translateY(-1px);
 }
 
@@ -104,9 +105,9 @@ body {
     padding: 16px;
     margin-bottom: 18px;
     border-radius: 8px;
-    color: #FFD7DF;
-    background: rgba(255, 100, 124, 0.09);
-    border: 1px solid rgba(255, 100, 124, 0.22);
+    color: #E6AEB8;
+    background: rgba(224, 96, 118, 0.09);
+    border: 1px solid rgba(224, 96, 118, 0.22);
 }
 
 .patient-form-alert-icon {
@@ -116,7 +117,7 @@ body {
     display: grid;
     place-items: center;
     border-radius: 8px;
-    background: rgba(255, 100, 124, 0.1);
+    background: rgba(224, 96, 118, 0.1);
 }
 
 .patient-form-alert strong {
@@ -135,7 +136,7 @@ body {
     padding: 26px;
     border-radius: 14px;
     background:
-        linear-gradient(180deg, rgba(17, 28, 68, 0.92), rgba(9, 18, 46, 0.96)),
+        linear-gradient(180deg, rgba(22, 29, 40, 0.92), rgba(8, 11, 16, 0.96)),
         var(--pf-card);
     border: 1px solid var(--pf-border);
     box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
@@ -147,7 +148,7 @@ body {
     position: absolute;
     inset: 0 0 auto;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.45), rgba(91, 95, 255, 0.35), transparent);
+    background: linear-gradient(90deg, transparent, rgba(47, 224, 176, 0.45), rgba(139, 126, 255, 0.35), transparent);
     pointer-events: none;
 }
 
@@ -155,7 +156,7 @@ body {
     position: relative;
     padding: 22px;
     border-radius: 12px;
-    background: rgba(11, 22, 56, 0.66);
+    background: rgba(15, 20, 28, 0.66);
     border: 1px solid rgba(146, 166, 204, 0.1);
 }
 
@@ -164,7 +165,7 @@ body {
 }
 
 .patient-form-section:hover {
-    border-color: rgba(0, 209, 255, 0.16);
+    border-color: rgba(47, 224, 176, 0.16);
 }
 
 .patient-section-heading {
@@ -182,8 +183,8 @@ body {
     place-items: center;
     border-radius: 10px;
     color: var(--pf-cyan);
-    background: rgba(0, 209, 255, 0.08);
-    border: 1px solid rgba(0, 209, 255, 0.16);
+    background: rgba(47, 224, 176, 0.08);
+    border: 1px solid rgba(47, 224, 176, 0.16);
 }
 
 .patient-section-heading h2 {
@@ -241,7 +242,7 @@ body {
     border-radius: 10px;
     outline: none;
     color: var(--pf-text);
-    background: rgba(8, 16, 40, 0.74);
+    background: rgba(8, 11, 16, 0.74);
     font-size: 0.92rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
@@ -274,15 +275,15 @@ body {
 .patient-field input:hover,
 .patient-field select:hover,
 .patient-field textarea:hover {
-    border-color: rgba(0, 209, 255, 0.28);
+    border-color: rgba(47, 224, 176, 0.28);
 }
 
 .patient-field input:focus,
 .patient-field select:focus,
 .patient-field textarea:focus {
-    border-color: rgba(0, 209, 255, 0.68);
-    background: rgba(8, 16, 40, 0.94);
-    box-shadow: 0 0 0 4px rgba(0, 209, 255, 0.08);
+    border-color: rgba(47, 224, 176, 0.68);
+    background: rgba(8, 11, 16, 0.94);
+    box-shadow: 0 0 0 4px rgba(47, 224, 176, 0.08);
 }
 
 .patient-field small {
@@ -294,13 +295,13 @@ body {
 .patient-form-card.was-validated .patient-field input:invalid,
 .patient-form-card.was-validated .patient-field select:invalid,
 .patient-form-card.was-validated .patient-field textarea:invalid {
-    border-color: rgba(255, 100, 124, 0.7);
-    box-shadow: 0 0 0 4px rgba(255, 100, 124, 0.08);
+    border-color: rgba(224, 96, 118, 0.7);
+    box-shadow: 0 0 0 4px rgba(224, 96, 118, 0.08);
 }
 
 .patient-field .invalid-feedback {
     margin-top: 7px;
-    color: #FFB4C0;
+    color: #E6AEB8;
     font-size: 0.76rem;
 }
 
@@ -315,14 +316,14 @@ body {
 .patient-submit-btn {
     border: 0;
     padding: 0 20px;
-    color: #FFFFFF;
-    background: linear-gradient(135deg, var(--pf-blue), var(--pf-cyan));
-    box-shadow: 0 16px 32px rgba(0, 209, 255, 0.16);
+    color: #04211A;
+    background: var(--mint);
+    box-shadow: 0 16px 32px rgba(47, 224, 176, 0.22);
 }
 
 .patient-submit-btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 20px 38px rgba(0, 209, 255, 0.22);
+    box-shadow: 0 20px 38px rgba(47, 224, 176, 0.22);
 }
 
 .patient-submit-btn:disabled {

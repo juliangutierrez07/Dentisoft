@@ -1,13 +1,14 @@
 :root {
-    --bill-bg: #081028;
-    --bill-panel: rgba(15, 23, 42, 0.78);
-    --bill-card: rgba(17, 28, 68, 0.74);
-    --bill-border: rgba(0, 209, 255, 0.15);
-    --bill-cyan: #00d1ff;
-    --bill-blue: #5b7cfa;
-    --bill-green: #22e6a8;
-    --bill-yellow: #f8c46c;
-    --bill-red: #ff7373;
+    --bill-bg: #080B10;
+    --bill-panel: rgba(15, 20, 28, 0.78);
+    --bill-card: rgba(22, 29, 40, 0.74);
+    --bill-border: rgba(47, 224, 176, 0.15);
+    --bill-cyan: #2FE0B0;
+    --bill-blue: #8B7EFF;
+    --bill-green: #2FAF7C;
+    --bill-yellow: #D9A247;
+    --bill-red: #D9615F;
+    --bill-info: #5C87CE;
     --bill-muted: rgba(226, 232, 240, 0.68);
 }
 
@@ -25,9 +26,9 @@
     border: 1px solid var(--bill-border);
     border-radius: 22px;
     background:
-        radial-gradient(circle at 14% 12%, rgba(0, 209, 255, 0.17), transparent 32%),
-        radial-gradient(circle at 86% 0%, rgba(91, 124, 250, 0.2), transparent 34%),
-        linear-gradient(135deg, rgba(9, 16, 39, 0.96), rgba(13, 26, 58, 0.84));
+        radial-gradient(circle at 14% 12%, rgba(47, 224, 176, 0.17), transparent 32%),
+        radial-gradient(circle at 86% 0%, rgba(139, 126, 255, 0.2), transparent 34%),
+        linear-gradient(135deg, rgba(8, 11, 16, 0.96), rgba(15, 20, 28, 0.84));
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26);
 }
 
@@ -44,9 +45,10 @@
 
 .billing-hero h1 {
     margin: 8px 0;
+    font-family: 'Fraunces', serif;
     color: #fff;
     font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 900;
+    font-weight: 500;
 }
 
 .billing-hero p {
@@ -73,9 +75,9 @@
 }
 
 .billing-primary {
-    color: #fff;
-    background: linear-gradient(135deg, var(--bill-blue), var(--bill-cyan));
-    box-shadow: 0 16px 34px rgba(0, 209, 255, 0.22);
+    color: #04211A;
+    background: var(--bill-cyan);
+    box-shadow: 0 16px 34px rgba(47, 224, 176, 0.22);
 }
 
 .billing-secondary,
@@ -85,7 +87,11 @@
     border-color: rgba(255, 255, 255, 0.14);
 }
 
-.billing-primary:hover,
+.billing-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
 .billing-secondary:hover,
 .billing-clear:hover {
     transform: translateY(-2px);
@@ -110,7 +116,7 @@
     border-radius: 20px;
     background:
         radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--kpi-color) 14%, transparent), transparent 34%),
-        linear-gradient(145deg, rgba(15, 23, 42, 0.82), rgba(17, 28, 68, 0.58));
+        linear-gradient(145deg, rgba(15, 20, 28, 0.82), rgba(22, 29, 40, 0.58));
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
 }
 
@@ -143,9 +149,10 @@
     line-height: 1.1;
 }
 
+/* Menta = financiero/positivo · Violeta = neutral/informativo (mismo criterio que dashboard) */
 .kpi-income { --kpi-color: var(--bill-cyan); }
-.kpi-pending { --kpi-color: var(--bill-yellow); }
-.kpi-paid { --kpi-color: var(--bill-green); }
+.kpi-pending { --kpi-color: var(--bill-blue); }
+.kpi-paid { --kpi-color: var(--bill-cyan); }
 .kpi-wallet { --kpi-color: var(--bill-blue); }
 
 .billing-toolbar,
@@ -190,7 +197,7 @@
 .invoice-item input {
     width: 100%;
     min-height: 46px;
-    border: 1px solid rgba(0, 209, 255, 0.14);
+    border: 1px solid rgba(47, 224, 176, 0.14);
     border-radius: 14px;
     outline: none;
     background: rgba(255, 255, 255, 0.045);
@@ -216,7 +223,7 @@
 
 .billing-filters option,
 .billing-fields option {
-    background: #101b3d;
+    background: #161D28;
     color: #fff;
 }
 
@@ -237,7 +244,7 @@
 
 .billing-table th {
     padding: 16px;
-    color: rgba(0, 209, 255, 0.78);
+    color: rgba(47, 224, 176, 0.78);
     font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -256,7 +263,7 @@
 }
 
 .billing-table tbody tr:hover {
-    background: rgba(0, 209, 255, 0.055);
+    background: rgba(47, 224, 176, 0.055);
 }
 
 .billing-table td small {
@@ -278,7 +285,7 @@
     width: 40px;
     height: 40px;
     border-radius: 14px;
-    background: linear-gradient(135deg, var(--bill-blue), var(--bill-cyan));
+    background: var(--bill-blue);
     color: #fff;
     font-weight: 900;
 }
@@ -322,7 +329,7 @@
 }
 
 .badge-warning { color: var(--bill-yellow); }
-.badge-info { color: var(--bill-cyan); }
+.badge-info { color: var(--bill-info); }
 .badge-success { color: var(--bill-green); }
 .badge-danger { color: var(--bill-red); }
 .badge-muted { color: #94a3b8; }
@@ -348,7 +355,7 @@
 
 .billing-actions a:hover {
     transform: translateY(-2px);
-    background: rgba(0, 209, 255, 0.1);
+    background: rgba(47, 224, 176, 0.1);
 }
 
 .billing-empty {
@@ -383,9 +390,9 @@
 
 .billing-form-section {
     padding: 20px;
-    border: 1px solid rgba(0, 209, 255, 0.12);
+    border: 1px solid rgba(47, 224, 176, 0.12);
     border-radius: 18px;
-    background: rgba(2, 8, 23, 0.26);
+    background: rgba(8, 11, 16, 0.26);
 }
 
 .billing-section-title {
@@ -402,8 +409,8 @@
     height: 44px;
     border-radius: 15px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.1);
-    border: 1px solid rgba(0, 209, 255, 0.18);
+    background: rgba(47, 224, 176, 0.1);
+    border: 1px solid rgba(47, 224, 176, 0.18);
 }
 
 .billing-section-title h2 {
@@ -458,7 +465,7 @@
     padding: 12px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(0, 209, 255, 0.1);
+    border: 1px solid rgba(47, 224, 176, 0.1);
 }
 
 .invoice-item .item-description {
@@ -468,10 +475,10 @@
 .invoice-item button {
     width: 38px;
     height: 46px;
-    border: 1px solid rgba(255, 115, 115, 0.18);
+    border: 1px solid rgba(217, 97, 95, 0.18);
     border-radius: 12px;
     color: var(--bill-red);
-    background: rgba(255, 115, 115, 0.08);
+    background: rgba(217, 97, 95, 0.08);
 }
 
 .invoice-summary-card {
@@ -572,7 +579,7 @@
 .invoice-finance-card {
     border: 1px solid var(--bill-border);
     background:
-        linear-gradient(145deg, rgba(15, 23, 42, 0.84), rgba(17, 28, 68, 0.58));
+        linear-gradient(145deg, rgba(15, 20, 28, 0.84), rgba(22, 29, 40, 0.58));
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.045);
     backdrop-filter: blur(18px);
 }
@@ -587,9 +594,9 @@
     overflow: hidden;
     border-radius: 24px;
     background:
-        radial-gradient(circle at 12% 8%, rgba(0, 209, 255, 0.2), transparent 32%),
-        radial-gradient(circle at 90% 0%, rgba(91, 124, 250, 0.22), transparent 34%),
-        linear-gradient(135deg, rgba(8, 16, 40, 0.98), rgba(13, 26, 58, 0.86));
+        radial-gradient(circle at 12% 8%, rgba(47, 224, 176, 0.2), transparent 32%),
+        radial-gradient(circle at 90% 0%, rgba(139, 126, 255, 0.22), transparent 34%),
+        linear-gradient(135deg, rgba(8, 11, 16, 0.98), rgba(15, 20, 28, 0.86));
 }
 
 .invoice-hero::after {
@@ -598,8 +605,8 @@
     inset: auto 28px 0;
     height: 2px;
     border-radius: 999px;
-    background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.62), transparent);
-    box-shadow: 0 0 24px rgba(0, 209, 255, 0.28);
+    background: linear-gradient(90deg, transparent, rgba(47, 224, 176, 0.62), transparent);
+    box-shadow: 0 0 24px rgba(47, 224, 176, 0.28);
 }
 
 .invoice-hero-main {
@@ -619,9 +626,10 @@
 
 .invoice-title-row h1 {
     margin: 0;
+    font-family: 'Fraunces', serif;
     color: #fff;
     font-size: clamp(2rem, 4vw, 3.35rem);
-    font-weight: 900;
+    font-weight: 500;
     line-height: 1.04;
 }
 
@@ -643,7 +651,7 @@
     align-items: center;
     min-height: 70px;
     padding: 12px;
-    border: 1px solid rgba(0, 209, 255, 0.12);
+    border: 1px solid rgba(47, 224, 176, 0.12);
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.04);
 }
@@ -656,7 +664,7 @@
     grid-row: span 2;
     border-radius: 13px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.09);
+    background: rgba(47, 224, 176, 0.09);
 }
 
 .invoice-meta-grid span {
@@ -714,18 +722,24 @@
 }
 
 .invoice-action-button.primary {
-    border-color: rgba(0, 209, 255, 0.22);
-    background: linear-gradient(135deg, var(--bill-blue), var(--bill-cyan));
-    color: #fff;
-    box-shadow: 0 16px 34px rgba(0, 209, 255, 0.2);
+    border-color: rgba(47, 224, 176, 0.22);
+    background: var(--bill-cyan);
+    color: #04211A;
+    box-shadow: 0 16px 34px rgba(47, 224, 176, 0.2);
 }
 
 .invoice-action-button:hover,
 .invoice-status-form label:hover {
     transform: translateY(-2px);
-    border-color: rgba(0, 209, 255, 0.34);
-    background: rgba(0, 209, 255, 0.09);
+    border-color: rgba(47, 224, 176, 0.34);
+    background: rgba(47, 224, 176, 0.09);
     color: #fff;
+}
+
+.invoice-action-button.primary:hover {
+    background: var(--bill-cyan);
+    color: #04211A;
+    filter: brightness(1.08);
 }
 
 .invoice-action-button {
@@ -746,7 +760,7 @@
 }
 
 .invoice-status-form option {
-    background: #101b3d;
+    background: #161D28;
     color: #fff;
 }
 
@@ -784,9 +798,9 @@
     flex: 0 0 52px;
     border-radius: 17px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.1);
-    border: 1px solid rgba(0, 209, 255, 0.2);
-    box-shadow: 0 0 24px rgba(0, 209, 255, 0.12);
+    background: rgba(47, 224, 176, 0.1);
+    border: 1px solid rgba(47, 224, 176, 0.2);
+    box-shadow: 0 0 24px rgba(47, 224, 176, 0.12);
 }
 
 .invoice-card-head div {
@@ -815,11 +829,11 @@
 .invoice-balance {
     margin: 24px 0 18px;
     padding: 20px;
-    border: 1px solid rgba(248, 196, 108, 0.18);
+    border: 1px solid rgba(217, 162, 71, 0.18);
     border-radius: 20px;
     background:
-        radial-gradient(circle at 20% 0%, rgba(248, 196, 108, 0.13), transparent 36%),
-        rgba(2, 8, 23, 0.3);
+        radial-gradient(circle at 20% 0%, rgba(217, 162, 71, 0.13), transparent 36%),
+        rgba(8, 11, 16, 0.3);
 }
 
 .invoice-balance small {
@@ -913,7 +927,7 @@
     height: 100%;
     border-radius: inherit;
     background: linear-gradient(90deg, var(--bill-green), var(--bill-cyan));
-    box-shadow: 0 0 18px rgba(34, 230, 168, 0.26);
+    box-shadow: 0 0 18px rgba(47, 175, 124, 0.26);
 }
 
 .invoice-finance-list {
@@ -922,9 +936,9 @@
 
 .invoice-finance-list .total {
     padding: 14px;
-    border: 1px solid rgba(0, 209, 255, 0.14);
+    border: 1px solid rgba(47, 224, 176, 0.14);
     border-radius: 16px;
-    background: rgba(0, 209, 255, 0.06);
+    background: rgba(47, 224, 176, 0.06);
 }
 
 .invoice-finance-list .total dt,
@@ -947,10 +961,12 @@
 .invoice-side-column {
     display: grid;
     gap: 18px;
+    min-width: 0;
 }
 
 .invoice-panel {
     padding: 20px;
+    min-width: 0;
 }
 
 .invoice-section-header {
@@ -973,8 +989,8 @@
     min-height: 42px;
     border-radius: 14px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.09);
-    border: 1px solid rgba(0, 209, 255, 0.16);
+    background: rgba(47, 224, 176, 0.09);
+    border: 1px solid rgba(47, 224, 176, 0.16);
     text-decoration: none;
     font-weight: 900;
 }
@@ -982,7 +998,7 @@
 .invoice-table-wrap {
     overflow-x: auto;
     border-radius: 18px;
-    background: rgba(2, 8, 23, 0.26);
+    background: rgba(8, 11, 16, 0.26);
 }
 
 .invoice-detail-table {
@@ -994,7 +1010,7 @@
 
 .invoice-detail-table th {
     padding: 15px;
-    color: rgba(0, 209, 255, 0.78);
+    color: rgba(47, 224, 176, 0.78);
     font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -1014,7 +1030,7 @@
 }
 
 .invoice-detail-table tbody tr:hover {
-    background: rgba(0, 209, 255, 0.055);
+    background: rgba(47, 224, 176, 0.055);
 }
 
 .invoice-detail-table .num {
@@ -1036,7 +1052,7 @@
     flex: 0 0 40px;
     border-radius: 14px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.09);
+    background: rgba(47, 224, 176, 0.09);
 }
 
 .invoice-item-name strong,
@@ -1065,7 +1081,7 @@
     place-items: center;
     min-height: 220px;
     padding: 28px;
-    border: 1px dashed rgba(0, 209, 255, 0.2);
+    border: 1px dashed rgba(47, 224, 176, 0.2);
     border-radius: 18px;
     color: var(--bill-muted);
     text-align: center;
@@ -1104,7 +1120,7 @@
     left: 20px;
     width: 2px;
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(0, 209, 255, 0.46), rgba(91, 124, 250, 0.08));
+    background: linear-gradient(180deg, rgba(47, 224, 176, 0.46), rgba(139, 126, 255, 0.08));
 }
 
 .invoice-payment-card {
@@ -1121,19 +1137,19 @@
     place-items: center;
     width: 42px;
     height: 42px;
-    border: 1px solid rgba(0, 209, 255, 0.24);
+    border: 1px solid rgba(47, 224, 176, 0.24);
     border-radius: 15px;
-    background: #101b3d;
+    background: #161D28;
     color: var(--bill-cyan);
-    box-shadow: 0 0 22px rgba(0, 209, 255, 0.15);
+    box-shadow: 0 0 22px rgba(47, 224, 176, 0.15);
 }
 
 .payment-card-body {
     padding: 16px;
-    border: 1px solid rgba(0, 209, 255, 0.13);
+    border: 1px solid rgba(47, 224, 176, 0.13);
     border-radius: 18px;
     background:
-        radial-gradient(circle at 12% 0%, rgba(0, 209, 255, 0.09), transparent 34%),
+        radial-gradient(circle at 12% 0%, rgba(47, 224, 176, 0.09), transparent 34%),
         rgba(255, 255, 255, 0.035);
 }
 
@@ -1311,9 +1327,9 @@
     border: 1px solid var(--bill-border);
     border-radius: 26px;
     background:
-        radial-gradient(circle at 12% 0%, rgba(0, 209, 255, 0.15), transparent 30%),
-        radial-gradient(circle at 90% 0%, rgba(91, 124, 250, 0.16), transparent 34%),
-        linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(17, 28, 68, 0.66));
+        radial-gradient(circle at 12% 0%, rgba(47, 224, 176, 0.15), transparent 30%),
+        radial-gradient(circle at 90% 0%, rgba(139, 126, 255, 0.16), transparent 34%),
+        linear-gradient(145deg, rgba(15, 20, 28, 0.9), rgba(22, 29, 40, 0.66));
     box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.045);
     backdrop-filter: blur(18px);
 }
@@ -1324,7 +1340,7 @@
     justify-content: space-between;
     gap: 24px;
     padding-bottom: 22px;
-    border-bottom: 1px solid rgba(0, 209, 255, 0.16);
+    border-bottom: 1px solid rgba(47, 224, 176, 0.16);
 }
 
 .print-brand {
@@ -1340,7 +1356,7 @@
     object-fit: contain;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(0, 209, 255, 0.14);
+    border: 1px solid rgba(47, 224, 176, 0.14);
     padding: 8px;
 }
 
@@ -1357,9 +1373,10 @@
 
 .print-brand h1 {
     margin: 5px 0 4px;
+    font-family: 'Fraunces', serif;
     color: #fff;
     font-size: clamp(1.45rem, 3vw, 2.35rem);
-    font-weight: 900;
+    font-weight: 500;
     line-height: 1.05;
 }
 
@@ -1395,7 +1412,7 @@
 .print-meta-grid article,
 .print-panel,
 .print-finance-panel {
-    border: 1px solid rgba(0, 209, 255, 0.13);
+    border: 1px solid rgba(47, 224, 176, 0.13);
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.04);
 }
@@ -1418,7 +1435,7 @@
     grid-row: span 2;
     border-radius: 13px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.09);
+    background: rgba(47, 224, 176, 0.09);
 }
 
 .print-contact-strip span,
@@ -1507,14 +1524,14 @@
     padding: 0 13px;
     border-radius: 14px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.08);
-    border: 1px solid rgba(0, 209, 255, 0.16);
+    background: rgba(47, 224, 176, 0.08);
+    border: 1px solid rgba(47, 224, 176, 0.16);
 }
 
 .print-table-wrap {
     overflow-x: auto;
     border-radius: 18px;
-    background: rgba(2, 8, 23, 0.28);
+    background: rgba(8, 11, 16, 0.28);
 }
 
 .print-detail-table {
@@ -1526,7 +1543,7 @@
 
 .print-detail-table th {
     padding: 15px;
-    color: rgba(0, 209, 255, 0.82);
+    color: rgba(47, 224, 176, 0.82);
     font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -1546,7 +1563,7 @@
 }
 
 .print-detail-table tbody tr:hover {
-    background: rgba(0, 209, 255, 0.055);
+    background: rgba(47, 224, 176, 0.055);
 }
 
 .print-detail-table strong {
@@ -1583,8 +1600,8 @@
     padding: 0 12px;
     border-radius: 999px;
     color: var(--bill-green);
-    background: rgba(34, 230, 168, 0.09);
-    border: 1px solid rgba(34, 230, 168, 0.22);
+    background: rgba(47, 175, 124, 0.09);
+    border: 1px solid rgba(47, 175, 124, 0.22);
     font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.07em;
@@ -1594,11 +1611,11 @@
 .print-total-hero {
     margin: 20px 0;
     padding: 20px;
-    border: 1px solid rgba(0, 209, 255, 0.16);
+    border: 1px solid rgba(47, 224, 176, 0.16);
     border-radius: 18px;
     background:
-        radial-gradient(circle at 20% 0%, rgba(0, 209, 255, 0.13), transparent 38%),
-        rgba(2, 8, 23, 0.3);
+        radial-gradient(circle at 20% 0%, rgba(47, 224, 176, 0.13), transparent 38%),
+        rgba(8, 11, 16, 0.3);
 }
 
 .print-total-hero small {
@@ -1654,7 +1671,7 @@
     align-items: center;
     margin-top: 20px;
     padding: 14px;
-    border: 1px solid rgba(0, 209, 255, 0.14);
+    border: 1px solid rgba(47, 224, 176, 0.14);
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.035);
 }
@@ -1695,7 +1712,7 @@
 }
 
 .print-qr i.filled {
-    background: #081028;
+    background: #080B10;
 }
 
 .print-qr-block strong {
@@ -1723,7 +1740,7 @@
     width: 76%;
     height: 1px;
     margin: 0 auto 10px;
-    background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.55), transparent);
+    background: linear-gradient(90deg, transparent, rgba(47, 224, 176, 0.55), transparent);
 }
 
 .print-signature strong {
@@ -1747,7 +1764,7 @@
     gap: 13px;
     align-items: center;
     padding: 14px;
-    border: 1px solid rgba(0, 209, 255, 0.12);
+    border: 1px solid rgba(47, 224, 176, 0.12);
     border-radius: 17px;
     background: rgba(255, 255, 255, 0.035);
     transition: background 0.2s ease, transform 0.2s ease;
@@ -1755,7 +1772,7 @@
 
 .print-payment-list article:hover {
     transform: translateY(-2px);
-    background: rgba(0, 209, 255, 0.06);
+    background: rgba(47, 224, 176, 0.06);
 }
 
 .print-payment-list article > span {
@@ -1765,7 +1782,7 @@
     height: 44px;
     border-radius: 15px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.09);
+    background: rgba(47, 224, 176, 0.09);
 }
 
 .print-payment-list strong {
@@ -1805,7 +1822,7 @@
     place-items: center;
     min-height: 170px;
     padding: 24px;
-    border: 1px dashed rgba(0, 209, 255, 0.2);
+    border: 1px dashed rgba(47, 224, 176, 0.2);
     border-radius: 18px;
     color: var(--bill-muted);
     text-align: center;
@@ -1834,7 +1851,7 @@
 
 .print-footer section {
     padding: 16px;
-    border: 1px solid rgba(0, 209, 255, 0.12);
+    border: 1px solid rgba(47, 224, 176, 0.12);
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.035);
 }
@@ -2128,7 +2145,7 @@
 .payment-toast {
     border: 1px solid var(--bill-border);
     background:
-        linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(17, 28, 68, 0.6));
+        linear-gradient(145deg, rgba(15, 20, 28, 0.86), rgba(22, 29, 40, 0.6));
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.045);
     backdrop-filter: blur(18px);
 }
@@ -2143,9 +2160,9 @@
     padding: 30px;
     border-radius: 24px;
     background:
-        radial-gradient(circle at 12% 10%, rgba(0, 209, 255, 0.2), transparent 32%),
-        radial-gradient(circle at 88% 0%, rgba(91, 124, 250, 0.22), transparent 34%),
-        linear-gradient(135deg, rgba(8, 16, 40, 0.98), rgba(13, 26, 58, 0.86));
+        radial-gradient(circle at 12% 10%, rgba(47, 224, 176, 0.2), transparent 32%),
+        radial-gradient(circle at 88% 0%, rgba(139, 126, 255, 0.22), transparent 34%),
+        linear-gradient(135deg, rgba(8, 11, 16, 0.98), rgba(15, 20, 28, 0.86));
 }
 
 .payment-hero::after {
@@ -2154,8 +2171,8 @@
     inset: auto 28px 0;
     height: 2px;
     border-radius: 999px;
-    background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.62), transparent);
-    box-shadow: 0 0 24px rgba(0, 209, 255, 0.28);
+    background: linear-gradient(90deg, transparent, rgba(47, 224, 176, 0.62), transparent);
+    box-shadow: 0 0 24px rgba(47, 224, 176, 0.28);
 }
 
 .payment-title-row {
@@ -2168,9 +2185,10 @@
 
 .payment-title-row h1 {
     margin: 0;
+    font-family: 'Fraunces', serif;
     color: #fff;
     font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 900;
+    font-weight: 500;
     line-height: 1.04;
 }
 
@@ -2205,13 +2223,13 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 18% 0%, rgba(0, 209, 255, 0.14), transparent 34%);
+    background: radial-gradient(circle at 18% 0%, rgba(47, 224, 176, 0.14), transparent 34%);
 }
 
-.payment-summary-card.status-parcial::before { background: radial-gradient(circle at 18% 0%, rgba(0, 209, 255, 0.18), transparent 36%); }
-.payment-summary-card.status-pagada::before { background: radial-gradient(circle at 18% 0%, rgba(34, 230, 168, 0.18), transparent 36%); }
+.payment-summary-card.status-parcial::before { background: radial-gradient(circle at 18% 0%, rgba(92, 135, 206, 0.18), transparent 36%); }
+.payment-summary-card.status-pagada::before { background: radial-gradient(circle at 18% 0%, rgba(47, 175, 124, 0.18), transparent 36%); }
 .payment-summary-card.status-pendiente::before,
-.payment-summary-card.status-vencida::before { background: radial-gradient(circle at 18% 0%, rgba(248, 196, 108, 0.16), transparent 36%); }
+.payment-summary-card.status-vencida::before { background: radial-gradient(circle at 18% 0%, rgba(217, 162, 71, 0.16), transparent 36%); }
 
 .payment-summary-head,
 .payment-card-header,
@@ -2230,11 +2248,11 @@
     width: 52px;
     height: 52px;
     flex: 0 0 52px;
-    border: 1px solid rgba(0, 209, 255, 0.2);
+    border: 1px solid rgba(47, 224, 176, 0.2);
     border-radius: 17px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.1);
-    box-shadow: 0 0 24px rgba(0, 209, 255, 0.12);
+    background: rgba(47, 224, 176, 0.1);
+    box-shadow: 0 0 24px rgba(47, 224, 176, 0.12);
 }
 
 .payment-summary-head small,
@@ -2260,14 +2278,14 @@
 .payment-patient {
     margin: 22px 0;
     padding: 16px;
-    border: 1px solid rgba(0, 209, 255, 0.12);
+    border: 1px solid rgba(47, 224, 176, 0.12);
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.04);
 }
 
 .payment-patient > span {
     color: #fff;
-    background: linear-gradient(135deg, var(--bill-blue), var(--bill-cyan));
+    background: var(--bill-blue);
 }
 
 .payment-patient em {
@@ -2297,9 +2315,9 @@
 
 .payment-summary-list .pending {
     padding: 14px;
-    border: 1px solid rgba(248, 196, 108, 0.18);
+    border: 1px solid rgba(217, 162, 71, 0.18);
     border-radius: 16px;
-    background: rgba(248, 196, 108, 0.055);
+    background: rgba(217, 162, 71, 0.055);
 }
 
 .payment-summary-list dt {
@@ -2359,7 +2377,7 @@
     height: 100%;
     border-radius: inherit;
     background: linear-gradient(90deg, var(--bill-green), var(--bill-cyan));
-    box-shadow: 0 0 18px rgba(34, 230, 168, 0.26);
+    box-shadow: 0 0 18px rgba(47, 175, 124, 0.26);
 }
 
 .payment-card-header {
@@ -2380,10 +2398,10 @@
     align-items: center;
     justify-content: center;
     padding: 0 14px;
-    border: 1px solid rgba(0, 209, 255, 0.16);
+    border: 1px solid rgba(47, 224, 176, 0.16);
     border-radius: 14px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.08);
+    background: rgba(47, 224, 176, 0.08);
 }
 
 .payment-skeleton {
@@ -2396,7 +2414,7 @@
 .payment-skeleton span {
     height: 8px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.06), rgba(0, 209, 255, 0.18), rgba(255, 255, 255, 0.06));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.06), rgba(47, 224, 176, 0.18), rgba(255, 255, 255, 0.06));
     background-size: 220% 100%;
     animation: paymentShimmer 1.4s linear infinite;
 }
@@ -2441,7 +2459,7 @@
 .payment-field input {
     width: 100%;
     min-height: 50px;
-    border: 1px solid rgba(0, 209, 255, 0.14);
+    border: 1px solid rgba(47, 224, 176, 0.14);
     border-radius: 15px;
     outline: none;
     padding: 0 14px 0 42px;
@@ -2452,9 +2470,9 @@
 }
 
 .payment-field input:focus {
-    border-color: rgba(0, 209, 255, 0.5);
-    background: rgba(0, 209, 255, 0.06);
-    box-shadow: 0 0 0 4px rgba(0, 209, 255, 0.1), 0 0 24px rgba(0, 209, 255, 0.16);
+    border-color: rgba(47, 224, 176, 0.5);
+    background: rgba(47, 224, 176, 0.06);
+    box-shadow: 0 0 0 4px rgba(47, 224, 176, 0.1), 0 0 24px rgba(47, 224, 176, 0.16);
 }
 
 .payment-field input:disabled {
@@ -2469,8 +2487,8 @@
 }
 
 .payment-field.has-error input {
-    border-color: rgba(255, 115, 115, 0.52);
-    box-shadow: 0 0 0 4px rgba(255, 115, 115, 0.08);
+    border-color: rgba(217, 97, 95, 0.52);
+    box-shadow: 0 0 0 4px rgba(217, 97, 95, 0.08);
 }
 
 .payment-field.has-error small {
@@ -2495,7 +2513,7 @@
     gap: 8px;
     min-height: 92px;
     padding: 13px 8px;
-    border: 1px solid rgba(0, 209, 255, 0.12);
+    border: 1px solid rgba(47, 224, 176, 0.12);
     border-radius: 17px;
     background: rgba(255, 255, 255, 0.04);
     color: rgba(238, 246, 255, 0.82);
@@ -2512,15 +2530,15 @@
     height: 38px;
     border-radius: 13px;
     color: var(--bill-cyan);
-    background: rgba(0, 209, 255, 0.09);
+    background: rgba(47, 224, 176, 0.09);
 }
 
 .payment-methods label:hover span,
 .payment-methods input:checked + span {
     transform: translateY(-2px);
-    border-color: rgba(0, 209, 255, 0.34);
-    background: rgba(0, 209, 255, 0.09);
-    box-shadow: 0 16px 34px rgba(0, 209, 255, 0.12);
+    border-color: rgba(47, 224, 176, 0.34);
+    background: rgba(47, 224, 176, 0.09);
+    box-shadow: 0 16px 34px rgba(47, 224, 176, 0.12);
 }
 
 .payment-submit {
@@ -2532,9 +2550,9 @@
     min-height: 52px;
     border: 0;
     border-radius: 16px;
-    color: #fff;
-    background: linear-gradient(135deg, var(--bill-blue), var(--bill-cyan));
-    box-shadow: 0 16px 34px rgba(0, 209, 255, 0.24);
+    color: #04211A;
+    background: var(--bill-cyan);
+    box-shadow: 0 16px 34px rgba(47, 224, 176, 0.24);
     font-weight: 900;
     overflow: hidden;
     transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
@@ -2551,7 +2569,7 @@
 
 .payment-submit:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 20px 44px rgba(0, 209, 255, 0.32);
+    box-shadow: 0 20px 44px rgba(47, 224, 176, 0.32);
     filter: saturate(1.08);
 }
 
@@ -2589,7 +2607,7 @@
 .payment-table-wrap {
     overflow-x: auto;
     border-radius: 18px;
-    background: rgba(2, 8, 23, 0.26);
+    background: rgba(8, 11, 16, 0.26);
 }
 
 .payment-table {
@@ -2601,7 +2619,7 @@
 
 .payment-table th {
     padding: 15px;
-    color: rgba(0, 209, 255, 0.78);
+    color: rgba(47, 224, 176, 0.78);
     font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -2623,7 +2641,7 @@
 }
 
 .payment-table tbody tr:hover {
-    background: rgba(0, 209, 255, 0.055);
+    background: rgba(47, 224, 176, 0.055);
 }
 
 .payment-table .num {
@@ -2646,10 +2664,10 @@
     gap: 8px;
     min-height: 34px;
     padding: 0 11px;
-    border: 1px solid rgba(0, 209, 255, 0.18);
+    border: 1px solid rgba(47, 224, 176, 0.18);
     border-radius: 999px;
     color: #fff;
-    background: rgba(0, 209, 255, 0.075);
+    background: rgba(47, 224, 176, 0.075);
     font-weight: 900;
 }
 
@@ -2662,7 +2680,7 @@
     place-items: center;
     min-height: 260px;
     padding: 30px;
-    border: 1px dashed rgba(0, 209, 255, 0.2);
+    border: 1px dashed rgba(47, 224, 176, 0.2);
     border-radius: 18px;
     color: var(--bill-muted);
     text-align: center;
@@ -2716,12 +2734,12 @@
 }
 
 .payment-toast.error {
-    border-color: rgba(255, 115, 115, 0.22);
+    border-color: rgba(217, 97, 95, 0.22);
 }
 
 .payment-toast.error i {
     color: var(--bill-red);
-    background: rgba(255, 115, 115, 0.09);
+    background: rgba(217, 97, 95, 0.09);
 }
 
 @keyframes paymentFadeUp {

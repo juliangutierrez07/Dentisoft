@@ -18,6 +18,14 @@ $citasHoy       = (int) $db->query("SELECT COUNT(*) FROM citas WHERE fecha = CUR
 $ingresosMes    = (float) $db->query("SELECT COALESCE(SUM(monto),0) FROM pagos WHERE MONTH(fecha_pago)=MONTH(CURDATE()) AND YEAR(fecha_pago)=YEAR(CURDATE())")->fetchColumn();
 $cartera        = (float) $db->query("SELECT COALESCE(SUM(saldo_pendiente),0) FROM facturas WHERE estado IN ('pendiente','parcial','vencida')")->fetchColumn();
 
+// ─── Localización de fechas (es) ───────────────────────────────
+$diasEs  = ['Sunday' => 'Domingo', 'Monday' => 'Lunes', 'Tuesday' => 'Martes', 'Wednesday' => 'Miércoles', 'Thursday' => 'Jueves', 'Friday' => 'Viernes', 'Saturday' => 'Sábado'];
+$mesesAbrevEs = ['Jan' => 'ene', 'Feb' => 'feb', 'Mar' => 'mar', 'Apr' => 'abr', 'May' => 'may', 'Jun' => 'jun', 'Jul' => 'jul', 'Aug' => 'ago', 'Sep' => 'sep', 'Oct' => 'oct', 'Nov' => 'nov', 'Dec' => 'dic'];
+$mesesEs = ['January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo', 'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre', 'November' => 'noviembre', 'December' => 'diciembre'];
+
+$fechaHoyEs  = $diasEs[date('l')] . ', ' . date('d') . ' ' . $mesesAbrevEs[date('M')] . ' ' . date('Y');
+$mesActualEs = ucfirst($mesesEs[date('F')]) . ' ' . date('Y');
+
 // ─── Citas del día ───────────────────────────────────────────
 $citasDelDia = $db->query("
     SELECT c.hora_inicio, c.hora_fin, c.motivo, c.estado,
@@ -119,7 +127,7 @@ foreach ($semana as $row) {
         <div class="kpi-info">
             <div class="kpi-label">Citas Hoy</div>
             <div class="kpi-value"><?= number_format($citasHoy) ?></div>
-            <div class="kpi-sub"><?= date('l, d M Y') ?></div>
+            <div class="kpi-sub"><?= $fechaHoyEs ?></div>
         </div>
         <div class="kpi-icon"><i class="bi bi-calendar-check-fill"></i></div>
     </div>
@@ -127,7 +135,7 @@ foreach ($semana as $row) {
         <div class="kpi-info">
             <div class="kpi-label">Ingresos del Mes</div>
             <div class="kpi-value">$<?= number_format($ingresosMes, 0, ',', '.') ?></div>
-            <div class="kpi-sub"><?= date('F Y') ?></div>
+            <div class="kpi-sub"><?= $mesActualEs ?></div>
         </div>
         <div class="kpi-icon"><i class="bi bi-cash-stack"></i></div>
     </div>
@@ -254,10 +262,10 @@ document.addEventListener('DOMContentLoaded', function () {
             datasets: [{
                 label: 'Ingresos (COP)',
                 data: <?= json_encode($mesesValues) ?>,
-                borderColor: '#6366f1',
-                backgroundColor: 'rgba(99,102,241,0.1)',
+                borderColor: '#2FE0B0',
+                backgroundColor: 'rgba(47,224,176,0.12)',
                 borderWidth: 2.5,
-                pointBackgroundColor: '#6366f1',
+                pointBackgroundColor: '#2FE0B0',
                 pointBorderColor: '#fff',
                 pointBorderWidth: 2,
                 pointRadius: 5,
@@ -272,9 +280,9 @@ document.addEventListener('DOMContentLoaded', function () {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: '#1e293b',
-                    titleColor: '#f1f5f9',
-                    bodyColor: '#94a3b8',
+                    backgroundColor: '#161D28',
+                    titleColor: '#EEF2F4',
+                    bodyColor: '#8A93A3',
                     callbacks: { label: ctx => '$ ' + ctx.parsed.y.toLocaleString('es-CO') }
                 }
             },

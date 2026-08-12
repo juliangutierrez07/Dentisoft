@@ -32,10 +32,11 @@ $siteUrl = BASE_URL . '/';
     <meta property="og:image" content="<?= BASE_URL ?>/assets/img/logo.png">
     <link rel="canonical" href="<?= $siteUrl ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?= BASE_URL ?>/assets/css/home.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>/assets/css/home.css?v=<?= filemtime(__DIR__ . '/assets/css/home.css') ?>" rel="stylesheet">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -60,10 +61,8 @@ $siteUrl = BASE_URL . '/';
                 <span>DentiSoft</span>
             </a>
             <div class="nav-links" aria-label="Secciones">
-                <a href="#futuro">Futuro</a>
-                <a href="#mockups">Mockups</a>
-                <a href="#explorar">Explorar</a>
-                <a href="#testimonios">Clientes</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#precios">Precios</a>
             </div>
             <div class="nav-access-buttons">
                 <a class="nav-access-btn nav-access-paciente magnetic" href="<?= $loginPaciente ?>">
@@ -80,16 +79,10 @@ $siteUrl = BASE_URL . '/';
 
     <main>
         <section class="hero-cinematic" aria-labelledby="hero-title">
-            <div class="hero-video" aria-label="Fondo animado sutil de DentiSoft">
-                <div class="orbital-ring ring-a"></div>
-                <div class="orbital-ring ring-b"></div>
-                <div class="orbital-ring ring-c"></div>
-            </div>
-
             <div class="hero-content hero-layout reveal">
                 <div class="hero-copy">
                     <p class="eyebrow">DentiSoft Platform</p>
-                    <h1 id="hero-title">Gestiona tu consultorio desde una sola plataforma.</h1>
+                    <h1 id="hero-title">Gestiona tu consultorio <em>desde un solo lugar.</em></h1>
                     <p class="hero-subtitle">Pacientes, citas, historias clinicas, tratamientos, facturacion y portal para pacientes en una experiencia moderna y segura.</p>
                     <div class="hero-actions">
                         <a class="btn-primary magnetic" href="<?= $loginUrl ?>">
@@ -100,14 +93,66 @@ $siteUrl = BASE_URL . '/';
                             <i class="bi bi-person" aria-hidden="true"></i>
                             <span>Portal del Paciente</span>
                         </a>
-                        <a class="btn-ghost magnetic" href="#futuro">
+                        <a class="btn-ghost magnetic" href="#modulos">
                             <i class="bi bi-arrow-down-circle" aria-hidden="true"></i>
                             <span>Conocer mas</span>
                         </a>
                     </div>
+                    <div class="trust-row">
+                        <div class="trust-item">
+                            <span class="trust-num">50+</span>
+                            <span class="trust-label">Clinicas activas</span>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <span class="trust-num">10.000+</span>
+                            <span class="trust-label">Pacientes gestionados</span>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <span class="trust-num">100.000+</span>
+                            <span class="trust-label">Citas registradas</span>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <span class="trust-num">99.9%</span>
+                            <span class="trust-label">Disponibilidad</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="hero-product-stage" aria-label="Vista previa de modulos de DentiSoft">
+                    <svg class="odontogram-bg" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+                        <g stroke="#2FE0B0" stroke-width="1.2">
+                            <path d="M60 120 Q200 40 340 120" fill="none" opacity="0.5"/>
+                            <path d="M60 260 Q200 340 340 260" fill="none" opacity="0.5"/>
+                            <rect x="62" y="105" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="87" y="95" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="112" y="87" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="137" y="80" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="162" y="75" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="187" y="72" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="212" y="72" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="237" y="75" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="262" y="80" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="287" y="87" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="312" y="95" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="337" y="105" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="62" y="255" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="87" y="265" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="112" y="273" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="137" y="280" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="162" y="285" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="187" y="288" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="212" y="288" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="237" y="285" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="262" y="280" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="287" y="273" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="312" y="265" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                            <rect x="337" y="255" width="16" height="20" rx="5" stroke="#2FE0B0" stroke-width="1" opacity="0.55"/>
+                        </g>
+                    </svg>
+
                     <div class="product-window main-window">
                         <div class="window-bar">
                             <span></span><span></span><span></span>
@@ -128,6 +173,7 @@ $siteUrl = BASE_URL . '/';
                                 <div class="appointment-row active">
                                     <span>09:00</span>
                                     <div><strong>Maria Torres</strong><small>Limpieza dental</small></div>
+                                    <span class="appointment-tag">En curso</span>
                                 </div>
                                 <div class="appointment-row">
                                     <span>10:30</span>
@@ -138,63 +184,45 @@ $siteUrl = BASE_URL . '/';
                                     <div><strong>Ana Gomez</strong><small>Valoracion</small></div>
                                 </div>
                             </div>
-                            <div class="clinical-preview">
-                                <span>Historia clinica</span>
-                                <strong>Odontograma y evolucion</strong>
-                                <div class="clinical-lines"><i></i><i></i><i></i></div>
-                            </div>
                         </div>
                     </div>
 
                     <article class="floating-module module-billing">
                         <i class="bi bi-receipt-cutoff" aria-hidden="true"></i>
-                        <span>Facturacion</span>
+                        <span>Facturacion del mes</span>
                         <strong>$1.280.000</strong>
                     </article>
-                    <article class="floating-module module-portal">
-                        <i class="bi bi-person-check" aria-hidden="true"></i>
-                        <span>Portal del paciente</span>
-                        <strong>Cita confirmada</strong>
-                    </article>
-                    <article class="floating-module module-treatment">
+                    <article class="floating-module module-clinical">
                         <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i>
-                        <span>Tratamiento</span>
-                        <strong>Plan activo</strong>
+                        <span>Historia clinica</span>
+                        <strong>Odontograma actualizado</strong>
                     </article>
-
-                    <div class="dental-core hero-dental-model" aria-hidden="true">
-                        <div class="tooth-3d">
-                            <div class="tooth-crown"></div>
-                            <div class="tooth-root root-left"></div>
-                            <div class="tooth-root root-right"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <a class="scroll-cue" href="#futuro" aria-label="Ir a la siguiente seccion">
+            <a class="scroll-cue" href="#modulos" aria-label="Ir a la siguiente seccion">
                 <span></span>
             </a>
         </section>
 
-        <section class="future-section section" id="futuro">
+        <section class="future-section section" id="modulos">
             <div class="section-heading reveal">
-                <p class="eyebrow">El futuro del consultorio</p>
-                <h2>Una suite clinica que se siente tan avanzada como tu practica.</h2>
+                <p class="section-eyebrow"><span class="num">6 modulos</span> · uno por funcion clinica</p>
+                <h2>Cada parte del consultorio, en su lugar.</h2>
+                <p class="section-sub">Sin integraciones raras ni pestañas duplicadas: agenda, historia clinica y cobros comparten la misma ficha de paciente.</p>
             </div>
-            <div class="floating-card-grid">
+            <div class="modules-grid">
                 <?php
                 $features = [
-                    ['bi-person-vcard', 'Gestion de pacientes', 'Perfiles completos, busqueda inteligente y datos clinicos listos para actuar.'],
-                    ['bi-calendar2-week', 'Agenda inteligente', 'Estados, horarios, profesionales y confirmaciones en un flujo visual.'],
-                    ['bi-clipboard2-pulse', 'Historias clinicas digitales', 'Documentacion estructurada para decisiones clinicas con trazabilidad.'],
-                    ['bi-credit-card-2-front', 'Facturacion avanzada', 'Pagos, saldos y facturas integrados con la operacion diaria.'],
-                    ['bi-graph-up-arrow', 'Reportes estrategicos', 'Indicadores ejecutivos para entender productividad, cartera e ingresos.'],
-                    ['bi-shield-lock', 'Seguridad empresarial', 'Roles, permisos y control de acceso para proteger la informacion.'],
+                    ['01 / AGENDA', 'Citas sin choques', 'Estados, horarios, profesionales y confirmaciones en un flujo visual.'],
+                    ['02 / HISTORIA CLINICA', 'Odontograma digital', 'Registro por pieza dental, evolucion de tratamientos y trazabilidad clinica.'],
+                    ['03 / FACTURACION', 'Cobros claros', 'Pagos, saldos y facturas integrados con la operacion diaria.'],
+                    ['04 / PORTAL PACIENTE', 'Autonomia del paciente', 'Tus pacientes agendan, confirman y consultan su historial sin llamar al consultorio.'],
+                    ['05 / EQUIPO', 'Roles por profesional', 'Cada odontologo ve su agenda y sus pacientes; el administrador ve todo el consultorio.'],
+                    ['06 / REPORTES', 'Numeros al dia', 'Indicadores ejecutivos para entender productividad, cartera e ingresos.'],
                 ];
                 foreach ($features as $feature): ?>
-                    <article class="future-card tilt-card reveal">
-                        <div class="card-shine"></div>
-                        <i class="bi <?= $feature[0] ?>" aria-hidden="true"></i>
+                    <article class="module reveal">
+                        <div class="module-fdi"><?= $feature[0] ?></div>
                         <h3><?= $feature[1] ?></h3>
                         <p><?= $feature[2] ?></p>
                     </article>
@@ -202,128 +230,86 @@ $siteUrl = BASE_URL . '/';
             </div>
         </section>
 
-        <section class="mockup-section section" id="mockups">
-            <div class="section-heading centered reveal">
-                <p class="eyebrow">Mockups premium</p>
-                <h2>Tu consultorio sincronizado en cada pantalla.</h2>
+        <section class="section" id="precios">
+            <div class="section-heading reveal" style="max-width:640px;">
+                <p class="section-eyebrow"><span class="num">3 planes</span> · uno por tamano de consultorio</p>
+                <h2>Precio claro, sin cotizacion a ciegas.</h2>
+                <p class="section-sub">Sin permanencia minima. Cambia de plan o cancela cuando quieras.</p>
             </div>
-            <div class="device-stage reveal">
-                <div class="device laptop">
-                    <div class="screen dashboard-screen">
-                        <div class="screen-nav"></div>
-                        <div class="screen-main">
-                            <div class="metric-card big"><span>Agenda hoy</span><strong>28</strong></div>
-                            <div class="metric-card"><span>Ingresos</span><strong>$18.4M</strong></div>
-                            <div class="metric-card"><span>Pacientes</span><strong>10.2K</strong></div>
-                            <div class="screen-chart"><span></span><span></span><span></span><span></span><span></span></div>
-                        </div>
-                    </div>
-                    <div class="laptop-base"></div>
-                </div>
-                <div class="device tablet">
-                    <div class="screen">
-                        <div class="patient-card-mini">
-                            <i class="bi bi-person-heart"></i>
-                            <strong>Laura Medina</strong>
-                            <span>Control de ortodoncia</span>
-                        </div>
-                        <div class="timeline-mini"><span></span><span></span><span></span></div>
-                    </div>
-                </div>
-                <div class="device phone">
-                    <div class="screen">
-                        <div class="phone-notch"></div>
-                        <div class="phone-check"><i class="bi bi-check2"></i></div>
-                        <strong>Cita confirmada</strong>
-                        <span>9:30 AM</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="interactive-section section" id="explorar">
-            <div class="section-heading reveal">
-                <p class="eyebrow">Experiencia interactiva</p>
-                <h2>Explora los flujos que mantienen viva la operacion.</h2>
+            <div class="billing-toggle" role="group" aria-label="Ciclo de facturacion">
+                <button class="toggle-btn active" id="btn-monthly" type="button" onclick="setBilling('monthly')">Mensual</button>
+                <button class="toggle-btn" id="btn-annual" type="button" onclick="setBilling('annual')">
+                    Anual <span class="toggle-save">Ahorra 15%</span>
+                </button>
             </div>
-            <div class="explorer reveal" data-active="pacientes">
-                <div class="explorer-tabs" role="tablist" aria-label="Modulos principales">
-                    <button class="explorer-tab active" type="button" data-panel="pacientes" role="tab" aria-selected="true">
-                        <i class="bi bi-people"></i> Pacientes
-                    </button>
-                    <button class="explorer-tab" type="button" data-panel="citas" role="tab" aria-selected="false">
-                        <i class="bi bi-calendar-event"></i> Citas
-                    </button>
-                    <button class="explorer-tab" type="button" data-panel="historias" role="tab" aria-selected="false">
-                        <i class="bi bi-file-medical"></i> Historias clinicas
-                    </button>
-                    <button class="explorer-tab" type="button" data-panel="facturacion" role="tab" aria-selected="false">
-                        <i class="bi bi-receipt"></i> Facturacion
-                    </button>
-                </div>
-                <div class="explorer-panels">
-                    <article class="explorer-panel active" id="panel-pacientes">
-                        <span>Paciente 360</span>
-                        <h3>Historial, datos personales y evolucion clinica en un solo perfil.</h3>
-                        <p>Consulta informacion relevante, documentos y proximas citas sin saltar entre pantallas.</p>
-                    </article>
-                    <article class="explorer-panel" id="panel-citas">
-                        <span>Agenda inteligente</span>
-                        <h3>Coordina el dia completo del consultorio con estados claros.</h3>
-                        <p>Visualiza disponibilidad, confirma atenciones y reduce friccion operativa.</p>
-                    </article>
-                    <article class="explorer-panel" id="panel-historias">
-                        <span>Registro clinico</span>
-                        <h3>Historias digitales con trazabilidad y acceso seguro.</h3>
-                        <p>Documenta diagnosticos, tratamientos y avances desde una experiencia ordenada.</p>
-                    </article>
-                    <article class="explorer-panel" id="panel-facturacion">
-                        <span>Finanzas conectadas</span>
-                        <h3>Facturas, pagos y cartera integrados con cada paciente.</h3>
-                        <p>Entiende ingresos y saldos pendientes con menos trabajo manual.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
 
-        <section class="stats-section" aria-label="Estadisticas de DentiSoft">
-            <div class="stats-grid reveal">
-                <div><strong data-count="100000" data-prefix="+">0</strong><span>Citas registradas</span></div>
-                <div><strong data-count="50" data-prefix="+">0</strong><span>Clinicas activas</span></div>
-                <div><strong data-count="10000" data-prefix="+">0</strong><span>Pacientes gestionados</span></div>
-                <div><strong data-count="99.9" data-suffix="%">0</strong><span>Disponibilidad</span></div>
-            </div>
-        </section>
-
-        <section class="testimonials-section section" id="testimonios">
-            <div class="section-heading centered reveal">
-                <p class="eyebrow">Confianza clinica</p>
-                <h2>Equipos que quieren operar como empresas tecnologicas.</h2>
-            </div>
-            <div class="testimonial-carousel reveal" aria-label="Testimonios de clientes">
-                <article class="testimonial-slide active">
-                    <div class="portrait portrait-a" role="img" aria-label="Foto de Laura Mendez"></div>
-                    <p>"DentiSoft hizo que nuestro consultorio se sintiera moderno desde el primer dia. La agenda, las historias y los pagos finalmente hablan entre si."</p>
-                    <h3>Dra. Laura Mendez</h3>
-                    <span>Directora clinica</span>
-                </article>
-                <article class="testimonial-slide">
-                    <div class="portrait portrait-b" role="img" aria-label="Foto de Carlos Rivas"></div>
-                    <p>"El equipo administrativo trabaja con mas velocidad y menos errores. La plataforma transmite orden, control y confianza."</p>
-                    <h3>Carlos Rivas</h3>
-                    <span>Administrador odontologico</span>
-                </article>
-                <article class="testimonial-slide">
-                    <div class="portrait portrait-c" role="img" aria-label="Foto de Andrea Torres"></div>
-                    <p>"Encontrar la informacion clinica en segundos mejora la atencion. Se siente como pasar de archivos a un centro de comando."</p>
-                    <h3>Andrea Torres</h3>
-                    <span>Coordinadora asistencial</span>
-                </article>
-                <div class="carousel-dots" aria-label="Controles del carrusel">
-                    <button class="active" type="button" aria-label="Ver testimonio 1"></button>
-                    <button type="button" aria-label="Ver testimonio 2"></button>
-                    <button type="button" aria-label="Ver testimonio 3"></button>
+            <div class="pricing-grid reveal">
+                <div class="price-card">
+                    <div class="price-plan-fdi">01 / ESENCIAL</div>
+                    <div class="price-plan-name">Esencial</div>
+                    <div class="price-plan-for">Para el odontologo que atiende solo, en un unico consultorio.</div>
+                    <div class="price-amount">
+                        <span class="price-currency">COP</span>
+                        <span class="price-number" data-monthly="74.000" data-annual="63.000">$74.000</span>
+                    </div>
+                    <div class="price-period">por mes · 1 profesional</div>
+                    <div class="price-annual-note" id="note-1"></div>
+                    <ul class="price-features">
+                        <li>Agenda con recordatorios por WhatsApp</li>
+                        <li>Historia clinica y <b>odontograma digital</b></li>
+                        <li>Portal del paciente incluido</li>
+                        <li>Facturacion DIAN integrada</li>
+                    </ul>
+                    <a href="mailto:<?= htmlspecialchars($contactEmail, ENT_QUOTES, 'UTF-8') ?>?subject=Quiero%20contratar%20el%20plan%20Esencial" class="price-cta">Contratar Esencial</a>
                 </div>
+
+                <div class="price-card featured">
+                    <div class="price-badge">Mas elegido</div>
+                    <div class="price-plan-fdi">02 / PROFESIONAL</div>
+                    <div class="price-plan-name">Profesional</div>
+                    <div class="price-plan-for">Para consultorios de varios odontologos bajo un mismo techo.</div>
+                    <div class="price-amount">
+                        <span class="price-currency">COP</span>
+                        <span class="price-number" data-monthly="149.000" data-annual="127.000">$149.000</span>
+                    </div>
+                    <div class="price-period">por mes · hasta 5 profesionales</div>
+                    <div class="price-annual-note" id="note-2"></div>
+                    <ul class="price-features">
+                        <li>Todo lo de <b>Esencial</b></li>
+                        <li>Reportes de ocupacion e ingresos</li>
+                        <li>Roles por profesional</li>
+                        <li>Recordatorios automaticos + confirmacion por portal</li>
+                    </ul>
+                    <a href="mailto:<?= htmlspecialchars($contactEmail, ENT_QUOTES, 'UTF-8') ?>?subject=Quiero%20contratar%20el%20plan%20Profesional" class="price-cta primary">Contratar Profesional</a>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-plan-fdi">03 / CLINICA</div>
+                    <div class="price-plan-name">Clinica</div>
+                    <div class="price-plan-for">Para clinicas con varias sedes o mas de 6 profesionales.</div>
+                    <div class="price-amount">
+                        <span class="price-currency">Desde</span>
+                        <span class="price-number" style="font-size:1.4rem;">Cotizacion</span>
+                    </div>
+                    <div class="price-period">precio segun sedes y profesionales</div>
+                    <div class="price-annual-note"></div>
+                    <ul class="price-features">
+                        <li>Todo lo de <b>Profesional</b></li>
+                        <li>Multi-sede con reportes consolidados</li>
+                        <li>Migracion de datos asistida</li>
+                        <li>Soporte prioritario</li>
+                    </ul>
+                    <a href="mailto:<?= htmlspecialchars($contactEmail, ENT_QUOTES, 'UTF-8') ?>?subject=Quiero%20hablar%20sobre%20el%20plan%20Clinica" class="price-cta">Hablar con un asesor</a>
+                </div>
+            </div>
+
+            <div class="price-footnote">
+                <span>Cumple Ley 1581 de proteccion de datos</span>
+                <span class="dot"></span>
+                <span>Facturacion electronica DIAN</span>
+                <span class="dot"></span>
+                <span>Soporte en espanol, horario Colombia</span>
             </div>
         </section>
 
@@ -370,8 +356,8 @@ $siteUrl = BASE_URL . '/';
             <div>
                 <h3>Soporte</h3>
                 <a href="<?= $loginUrl ?>">Acceso al sistema</a>
-                <a href="#explorar">Modulos</a>
-                <a href="#mockups">Demostracion</a>
+                <a href="#modulos">Modulos</a>
+                <a href="#precios">Precios</a>
             </div>
             <div>
                 <h3>Redes y legal</h3>
@@ -421,7 +407,7 @@ $siteUrl = BASE_URL . '/';
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(125, 249, 255, ${p.a})`;
+                ctx.fillStyle = `rgba(47, 224, 176, ${p.a})`;
                 ctx.fill();
 
                 for (let j = index + 1; j < particles.length; j++) {
@@ -431,7 +417,7 @@ $siteUrl = BASE_URL . '/';
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(q.x, q.y);
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - distance / 120)})`;
+                        ctx.strokeStyle = `rgba(139, 126, 255, ${0.12 * (1 - distance / 120)})`;
                         ctx.stroke();
                     }
                 }
@@ -458,81 +444,26 @@ $siteUrl = BASE_URL . '/';
         }, { threshold: 0.15 });
         revealItems.forEach((item) => revealObserver.observe(item));
 
-        document.querySelectorAll('.tilt-card').forEach((card) => {
-            card.addEventListener('pointermove', (event) => {
-                if (reduceMotion) return;
-                const rect = card.getBoundingClientRect();
-                const x = event.clientX - rect.left;
-                const y = event.clientY - rect.top;
-                const rotateY = ((x / rect.width) - 0.5) * 10;
-                const rotateX = ((0.5 - y / rect.height)) * 10;
-                card.style.setProperty('--rx', `${rotateX}deg`);
-                card.style.setProperty('--ry', `${rotateY}deg`);
-                card.style.setProperty('--mx', `${x}px`);
-                card.style.setProperty('--my', `${y}px`);
+        function setBilling(mode) {
+            const btnMonthly = document.getElementById('btn-monthly');
+            const btnAnnual = document.getElementById('btn-annual');
+            btnMonthly.classList.toggle('active', mode === 'monthly');
+            btnAnnual.classList.toggle('active', mode === 'annual');
+
+            document.querySelectorAll('.price-number[data-monthly]').forEach((el) => {
+                const val = mode === 'annual' ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+                el.textContent = '$' + val;
             });
-            card.addEventListener('pointerleave', () => {
-                card.style.setProperty('--rx', '0deg');
-                card.style.setProperty('--ry', '0deg');
-            });
-        });
 
-        const tabs = document.querySelectorAll('.explorer-tab');
-        const panels = document.querySelectorAll('.explorer-panel');
-        tabs.forEach((tab) => {
-            tab.addEventListener('click', () => {
-                const target = tab.dataset.panel;
-                tabs.forEach((item) => {
-                    item.classList.toggle('active', item === tab);
-                    item.setAttribute('aria-selected', item === tab ? 'true' : 'false');
-                });
-                panels.forEach((panel) => {
-                    panel.classList.toggle('active', panel.id === `panel-${target}`);
-                });
-            });
-        });
-
-        const counters = document.querySelectorAll('[data-count]');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                const element = entry.target;
-                const target = Number(element.dataset.count);
-                const prefix = element.dataset.prefix || '';
-                const suffix = element.dataset.suffix || '';
-                const decimals = target % 1 === 0 ? 0 : 1;
-                const duration = 1500;
-                const start = performance.now();
-
-                const tick = (now) => {
-                    const progress = Math.min((now - start) / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const value = target * eased;
-                    element.textContent = prefix + value.toLocaleString('es-CO', {
-                        maximumFractionDigits: decimals,
-                        minimumFractionDigits: decimals
-                    }) + suffix;
-                    if (progress < 1) requestAnimationFrame(tick);
-                };
-                requestAnimationFrame(tick);
-                counterObserver.unobserve(element);
-            });
-        }, { threshold: 0.55 });
-        counters.forEach((counter) => counterObserver.observe(counter));
-
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const dots = document.querySelectorAll('.carousel-dots button');
-        let activeSlide = 0;
-
-        function showSlide(index) {
-            activeSlide = index;
-            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-        }
-
-        dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
-        if (!reduceMotion) {
-            setInterval(() => showSlide((activeSlide + 1) % slides.length), 5200);
+            const note1 = document.getElementById('note-1');
+            const note2 = document.getElementById('note-2');
+            if (mode === 'annual') {
+                note1.textContent = 'Facturado anual · equivale a $63.000/mes';
+                note2.textContent = 'Facturado anual · equivale a $127.000/mes';
+            } else {
+                note1.textContent = '';
+                note2.textContent = '';
+            }
         }
     </script>
 </body>

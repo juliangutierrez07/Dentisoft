@@ -99,10 +99,10 @@ try {
     </section>
 
     <section class="billing-kpis" aria-label="Indicadores de facturacion">
-        <article class="billing-kpi kpi-income"><span><i class="bi bi-graph-up-arrow"></i></span><div><small>Ingresos del mes</small><strong>$<?= number_format((float) ($stats['ingresos_mes'] ?? 0), 0, ',', '.') ?></strong></div></article>
-        <article class="billing-kpi kpi-pending"><span><i class="bi bi-hourglass-split"></i></span><div><small>Facturas pendientes</small><strong><?= number_format((int) ($stats['pendientes'] ?? 0)) ?></strong></div></article>
-        <article class="billing-kpi kpi-paid"><span><i class="bi bi-check2-circle"></i></span><div><small>Facturas pagadas</small><strong><?= number_format((int) ($stats['pagadas'] ?? 0)) ?></strong></div></article>
-        <article class="billing-kpi kpi-wallet"><span><i class="bi bi-wallet2"></i></span><div><small>Cartera por cobrar</small><strong>$<?= number_format((float) ($stats['cartera'] ?? 0), 0, ',', '.') ?></strong></div></article>
+        <article class="billing-kpi kpi-income"><span><i class="bi bi-graph-up-arrow"></i></span><div><small>Ingresos del mes</small><strong class="mono">$<?= number_format((float) ($stats['ingresos_mes'] ?? 0), 0, ',', '.') ?></strong></div></article>
+        <article class="billing-kpi kpi-pending"><span><i class="bi bi-hourglass-split"></i></span><div><small>Facturas pendientes</small><strong class="mono"><?= number_format((int) ($stats['pendientes'] ?? 0)) ?></strong></div></article>
+        <article class="billing-kpi kpi-paid"><span><i class="bi bi-check2-circle"></i></span><div><small>Facturas pagadas</small><strong class="mono"><?= number_format((int) ($stats['pagadas'] ?? 0)) ?></strong></div></article>
+        <article class="billing-kpi kpi-wallet"><span><i class="bi bi-wallet2"></i></span><div><small>Cartera por cobrar</small><strong class="mono">$<?= number_format((float) ($stats['cartera'] ?? 0), 0, ',', '.') ?></strong></div></article>
     </section>
 
     <section class="billing-toolbar">

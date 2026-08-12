@@ -315,10 +315,10 @@ $jsAdicional = 'adjuntos.js';
     <?php endif; ?>
 
     <section class="adj-stats">
-        <article><span><i class="bi bi-files"></i></span><div><strong data-adj-stat-total><?= count($adjuntos) ?></strong><small>Adjuntos</small></div></article>
-        <article><span><i class="bi bi-radioactive"></i></span><div><strong data-adj-stat-rx><?= $totalRadiografias ?></strong><small>Radiografias</small></div></article>
-        <article><span><i class="bi bi-images"></i></span><div><strong data-adj-stat-images><?= $totalImagenes ?></strong><small>Imagenes</small></div></article>
-        <article><span><i class="bi bi-hdd"></i></span><div><strong data-adj-stat-size><?= h(fileSizeReadable((int) $totalBytes)) ?></strong><small>Almacenado</small></div></article>
+        <article><span><i class="bi bi-files"></i></span><div><strong class="mono" data-adj-stat-total><?= count($adjuntos) ?></strong><small>Adjuntos</small></div></article>
+        <article><span><i class="bi bi-radioactive"></i></span><div><strong class="mono" data-adj-stat-rx><?= $totalRadiografias ?></strong><small>Radiografias</small></div></article>
+        <article><span><i class="bi bi-images"></i></span><div><strong class="mono" data-adj-stat-images><?= $totalImagenes ?></strong><small>Imagenes</small></div></article>
+        <article><span><i class="bi bi-hdd"></i></span><div><strong class="mono" data-adj-stat-size><?= h(fileSizeReadable((int) $totalBytes)) ?></strong><small>Almacenado</small></div></article>
     </section>
 
     <div class="adj-layout">
@@ -415,8 +415,8 @@ $jsAdicional = 'adjuntos.js';
                                 <?php endif; ?>
                                 <div class="adj-meta">
                                     <span><i class="bi bi-tooth"></i><?= h($adjunto['pieza_dental'] ?: 'Sin pieza') ?></span>
-                                    <span><i class="bi bi-calendar3"></i><?= h($adjunto['fecha']) ?></span>
-                                    <span><i class="bi bi-hdd"></i><?= h($adjunto['tamanio_legible']) ?></span>
+                                    <span class="mono"><i class="bi bi-calendar3"></i><?= h($adjunto['fecha']) ?></span>
+                                    <span class="mono"><i class="bi bi-hdd"></i><?= h($adjunto['tamanio_legible']) ?></span>
                                     <span><i class="bi bi-person"></i><?= h($adjunto['usuario']) ?></span>
                                 </div>
                             </div>

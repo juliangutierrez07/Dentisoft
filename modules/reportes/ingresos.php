@@ -28,90 +28,92 @@ function esc(string $value): string {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
+function emptyState(string $text): string {
+    return '<div class="reports-empty"><i class="bi bi-inbox"></i><strong>Sin datos</strong><p>' . esc($text) . '</p></div>';
+}
+
+function badgeClass(string $estado): string {
+    return match ($estado) {
+        'pagada', 'atendida', 'completado', 'realizada', 'activo' => 'success',
+        'parcial', 'confirmada', 'en_curso' => 'info',
+        'pendiente' => 'warning',
+        'vencida', 'cancelada', 'no_asistio', 'anulada' => 'danger',
+        default => 'muted',
+    };
+}
+
 $meses = array_map(fn($row) => $row['mes'], $ingresos);
 $valores = array_map(fn($row) => (float) $row['total'], $ingresos);
+$cssAdicional = 'reportes-premium.css';
 ?>
 <?php require_once __DIR__ . '/../../includes/header.php'; ?>
-<div class="container-fluid py-4">
-    <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-3 mb-4">
+<div class="reports-page">
+    <section class="reports-hero">
         <div>
-            <h1 class="h3 mb-1">Ingresos</h1>
-            <p class="text-muted mb-0">Analiza el comportamiento de los ingresos por periodos.</p>
+            <span class="reports-kicker"><i class="bi bi-graph-up-arrow"></i> Reportes financieros</span>
+            <h1>Ingresos</h1>
+            <p>Analiza el comportamiento de los ingresos por periodos.</p>
         </div>
-        <a href="index.php" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Volver</a>
-    </div>
+        <div class="reports-hero-actions">
+            <a href="index.php" class="report-action"><i class="bi bi-arrow-left"></i><span>Volver</span></a>
+        </div>
+    </section>
 
-    <div class="card bg-dark border-secondary shadow-sm mb-4">
-        <div class="card-body">
-            <form class="row g-3 align-items-end" method="GET" action="ingresos.php">
-                <div class="col-md-4">
-                    <label class="form-label fw-semibold">Fecha inicio</label>
-                    <input type="date" class="form-control" name="fecha_inicio" value="<?= esc($fechaInicio) ?>">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label fw-semibold">Fecha fin</label>
-                    <input type="date" class="form-control" name="fecha_fin" value="<?= esc($fechaFin) ?>">
-                </div>
-                <div class="col-md-4 text-end">
-                    <button type="submit" class="btn btn-primary">Filtrar</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <section class="reports-filter-card">
+        <form method="GET" action="ingresos.php" class="reports-filter-grid">
+            <label><span>Fecha inicio</span><input type="date" name="fecha_inicio" value="<?= esc($fechaInicio) ?>"></label>
+            <label><span>Fecha fin</span><input type="date" name="fecha_fin" value="<?= esc($fechaFin) ?>"></label>
+            <button type="submit" class="report-action primary"><i class="bi bi-funnel"></i><span>Filtrar</span></button>
+        </form>
+    </section>
 
-    <div class="row g-3 mb-4">
-        <div class="col-lg-8">
-            <div class="card bg-dark border-secondary shadow-sm p-3">
-                <h5 class="mb-3">Ingresos por mes</h5>
-                <canvas id="ingresosChart" height="120"></canvas>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card bg-dark border-secondary shadow-sm p-3 h-100">
-                <h5 class="mb-3">Total facturas</h5>
-                <p class="mb-2">Facturas listadas: <strong><?= count($facturas) ?></strong></p>
-                <p class="mb-0">Periodo: <?= esc($fechaInicio) ?> → <?= esc($fechaFin) ?></p>
-            </div>
-        </div>
-    </div>
+    <article class="report-panel">
+        <header>
+            <div><span>Tendencia</span><h2>Ingresos por mes</h2></div>
+            <i class="bi bi-graph-up-arrow"></i>
+        </header>
+        <div class="chart-shell"><canvas id="ingresosChart"></canvas></div>
+    </article>
 
-    <div class="card bg-dark border-secondary shadow-sm">
-        <div class="card-body">
-            <h5 class="mb-3">Facturas en el periodo</h5>
-            <div class="table-responsive">
-                <table class="table table-dark table-striped mb-0">
+    <article class="report-panel">
+        <header>
+            <div><span>Detalle</span><h2>Facturas en el periodo</h2></div>
+            <i class="bi bi-receipt-cutoff"></i>
+        </header>
+        <p class="report-hint">Facturas listadas: <strong class="mono"><?= count($facturas) ?></strong> &middot; Periodo: <strong class="mono"><?= esc($fechaInicio) ?> &rarr; <?= esc($fechaFin) ?></strong></p>
+        <?php if (empty($facturas)): ?>
+            <?= emptyState('No hay facturas en este periodo.') ?>
+        <?php else: ?>
+            <div class="reports-table-wrap">
+                <table class="reports-table">
                     <thead>
                         <tr>
                             <th>Factura</th>
                             <th>Paciente</th>
                             <th>Fecha</th>
-                            <th class="text-end">Total</th>
-                            <th class="text-end">Pagado</th>
-                            <th class="text-end">Saldo</th>
+                            <th class="num">Total</th>
+                            <th class="num">Pagado</th>
+                            <th class="num">Saldo</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($facturas)): ?>
-                            <tr><td colspan="7" class="text-center text-muted">No hay facturas en este periodo.</td></tr>
-                        <?php else: ?>
-                            <?php foreach ($facturas as $factura): ?>
-                                <tr>
-                                    <td><?= esc($factura['numero_factura']) ?></td>
-                                    <td><?= esc($factura['nombre'] . ' ' . $factura['apellido']) ?></td>
-                                    <td><?= esc(date('d/m/Y', strtotime($factura['fecha_emision']))) ?></td>
-                                    <td class="text-end">$<?= number_format($factura['total'], 0, ',', '.') ?></td>
-                                    <td class="text-end">$<?= number_format($factura['total_pagado'], 0, ',', '.') ?></td>
-                                    <td class="text-end">$<?= number_format($factura['saldo_pendiente'], 0, ',', '.') ?></td>
-                                    <td><?= esc(ucfirst($factura['estado'])) ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                        <?php foreach ($facturas as $factura): ?>
+                            <tr>
+                                <td><?= esc($factura['numero_factura']) ?></td>
+                                <td><?= esc($factura['nombre'] . ' ' . $factura['apellido']) ?></td>
+                                <td class="mono"><?= esc(date('d/m/Y', strtotime($factura['fecha_emision']))) ?></td>
+                                <td class="num mono">$<?= number_format((float) $factura['total'], 0, ',', '.') ?></td>
+                                <td class="num mono">$<?= number_format((float) $factura['total_pagado'], 0, ',', '.') ?></td>
+                                <td class="num mono">$<?= number_format((float) $factura['saldo_pendiente'], 0, ',', '.') ?></td>
+                                <td><span class="report-badge badge-<?= esc(badgeClass($factura['estado'])) ?>"><?= esc(ucfirst($factura['estado'])) ?></span></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
+        <?php endif; ?>
+    </article>
 </div>
 <script>
     window.REPORTES_DATA = {
