@@ -70,10 +70,12 @@ function enviarCorreoHtml(string $toEmail, string $toName, string $subject, stri
 
 /**
  * Plantilla HTML del correo de recuperacion de contrasena.
+ * $area define el encabezado (ej. "Portal del Paciente" o "Equipo Clinico").
  */
-function plantillaCorreoResetPortal(string $nombre, string $enlace, int $minutos): string {
-    $nombreSafe = htmlspecialchars($nombre !== '' ? $nombre : 'paciente', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+function plantillaCorreoReset(string $nombre, string $enlace, int $minutos, string $area = 'Portal del Paciente'): string {
+    $nombreSafe = htmlspecialchars($nombre !== '' ? $nombre : 'usuario', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     $enlaceSafe = htmlspecialchars($enlace, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    $areaSafe = htmlspecialchars($area, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 
     return <<<HTML
 <!DOCTYPE html>
@@ -82,7 +84,7 @@ function plantillaCorreoResetPortal(string $nombre, string $enlace, int $minutos
 <body style="margin:0;padding:24px;background:#f4f6fb;font-family:'Segoe UI',Tahoma,Arial,sans-serif;color:#2d3748;">
     <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(20,30,50,.08);">
         <div style="background:linear-gradient(135deg,#8B7EFF,#2FE0B0);padding:28px 30px;color:#ffffff;">
-            <h1 style="margin:0;font-size:20px;font-weight:700;">🦷 DentiSoft — Portal del Paciente</h1>
+            <h1 style="margin:0;font-size:20px;font-weight:700;">🦷 DentiSoft — {$areaSafe}</h1>
         </div>
         <div style="padding:30px;">
             <p style="font-size:16px;margin:0 0 16px;">Hola <strong>{$nombreSafe}</strong>,</p>
@@ -113,4 +115,11 @@ function plantillaCorreoResetPortal(string $nombre, string $enlace, int $minutos
 </body>
 </html>
 HTML;
+}
+
+/**
+ * Plantilla del correo de recuperacion para el Portal del Paciente.
+ */
+function plantillaCorreoResetPortal(string $nombre, string $enlace, int $minutos): string {
+    return plantillaCorreoReset($nombre, $enlace, $minutos, 'Portal del Paciente');
 }
