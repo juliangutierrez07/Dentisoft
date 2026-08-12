@@ -4,6 +4,12 @@
 -- Neiva, Huila — Colombia
 -- ============================================================
 
+-- Forzar UTF-8 en la importación para evitar mojibake (acentos/ñ).
+-- Sin esto, un cliente con charset por defecto latin1 guarda los datos
+-- doblemente codificados (ej. "María" -> "MarÃ­a").
+SET NAMES utf8mb4;
+SET CHARACTER SET utf8mb4;
+
 CREATE DATABASE IF NOT EXISTS odonto_db
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
