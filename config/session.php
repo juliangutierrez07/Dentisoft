@@ -30,7 +30,7 @@ function requireLogin(): void {
     if (!isset($_SESSION['usuario_id'])) {
         // Guardar URL actual para redirigir después del login
         $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'] ?? '';
-        header('Location: /DentiSoft1.0/login.php');
+        header('Location: ' . BASE_URL . '/login.php');
         exit;
     }
 }
@@ -48,7 +48,7 @@ function requireRole(array $roles_permitidos): void {
             'tipo'    => 'danger',
             'mensaje' => 'No tienes permisos para acceder a esta sección.'
         ];
-        header('Location: /DentiSoft1.0/dashboard.php');
+        header('Location: ' . BASE_URL . '/dashboard.php');
         exit;
     }
 }
@@ -81,7 +81,7 @@ function clearPatientSession(): void {
 function requirePatientLogin(): void {
     if (!isPatientLoggedIn()) {
         $_SESSION['patient_redirect_after_login'] = $_SERVER['REQUEST_URI'] ?? '';
-        header('Location: /DentiSoft1.0/portal-login.php');
+        header('Location: ' . BASE_URL . '/portal-login.php');
         exit;
     }
 
@@ -112,7 +112,7 @@ function requirePatientLogin(): void {
             if (!$paciente || ($paciente['cuenta_estado'] ?? '') !== 'activo' || ($paciente['paciente_estado'] ?? '') !== 'activo') {
                 clearPatientSession();
                 $_SESSION['alerta_portal_paciente'] = 'Tu cuenta no esta activa. Contacta al consultorio.';
-                header('Location: /DentiSoft1.0/portal-login.php');
+                header('Location: ' . BASE_URL . '/portal-login.php');
                 exit;
             }
 
@@ -126,7 +126,7 @@ function requirePatientLogin(): void {
             error_log('Portal paciente validacion sesion error: ' . $e->getMessage());
             clearPatientSession();
             $_SESSION['alerta_portal_paciente'] = 'No fue posible validar la sesion. Ingresa nuevamente.';
-            header('Location: /DentiSoft1.0/portal-login.php');
+            header('Location: ' . BASE_URL . '/portal-login.php');
             exit;
         }
     }
@@ -146,7 +146,7 @@ function currentPatient(): array {
 function requirePatientPasswordReady(): void {
     requirePatientLogin();
     if (!empty($_SESSION['paciente_debe_cambiar_password'])) {
-        header('Location: /DentiSoft1.0/portal-cambiar-password.php');
+        header('Location: ' . BASE_URL . '/portal-cambiar-password.php');
         exit;
     }
 }
@@ -182,7 +182,7 @@ function validarCSRF(): void {
             header('Content-Type: application/json; charset=utf-8');
             die(json_encode(['success' => false, 'error' => 'Token CSRF inválido. Recarga la página.']));
         }
-        die('Error 403: Token de seguridad inválido. <a href="/DentiSoft1.0/">Volver al inicio</a>');
+        die('Error 403: Token de seguridad inválido. <a href="' . BASE_URL . '/">Volver al inicio</a>');
     }
 }
 

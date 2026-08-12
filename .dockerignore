@@ -1,0 +1,33 @@
+# Control de versiones
+.git
+.gitignore
+
+# Dependencias que se instalan en la imagen
+vendor/
+
+# Configuración local sensible (se usan variables de entorno de Dokploy)
+.env
+.env.local
+.env.*.local
+
+# Runtime / cache / logs locales
+storage/logs/*
+storage/cache/*
+storage/sessions/*
+storage/backups/*
+runtime_sessions/
+sess_*
+*.log
+*.tmp
+
+# Uploads locales (datos de pacientes de la máquina de desarrollo)
+assets/uploads/fotos/*
+assets/uploads/radiografias/*
+storage/uploads/*
+
+# Herramientas / IDE
+.vscode/
+.idea/
+.DS_Store
+node_modules/
+tests/manual/

@@ -18,8 +18,11 @@ ini_set('display_startup_errors', '0');
 ini_set('log_errors', '1');
 ini_set('error_log', dirname(__DIR__) . '/storage/logs/dentisoft-error.log');
 
-// Ruta base del sistema
-define('BASE_URL',        '/DentiSoft1.0');
+// Ruta base del sistema (configurable por entorno).
+// Local (XAMPP): usa el valor por defecto "/DentiSoft1.0".
+// Despliegue en raíz de dominio (Dokploy/producción): define BASE_URL=/ en el entorno.
+require_once __DIR__ . '/env.php';
+define('BASE_URL',        rtrim((string) env('BASE_URL', '/DentiSoft1.0'), '/'));
 define('APP_NAME',        'DentiSoft');
 define('APP_VERSION',     '1.0');
 define('APP_DESCRIPTION', 'Sistema de Gestión Odontológica');
