@@ -590,11 +590,13 @@ body.cita-modal-open {
 
 .cita-detail-modal {
     position: fixed;
-    inset: 0;
+    /* Centrado en el área de contenido (a la derecha del sidebar), no en toda
+       la ventana, para que el diálogo no quede oculto/pegado tras el sidebar. */
+    inset: 0 0 0 var(--sidebar-width, 260px);
     z-index: 1080;
     display: grid;
     place-items: center;
-    padding: 24px;
+    padding: 40px 44px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.18s ease;
@@ -603,6 +605,14 @@ body.cita-modal-open {
 .cita-detail-modal.is-open {
     opacity: 1;
     pointer-events: auto;
+}
+
+/* En pantallas donde el sidebar se oculta (≤992px), ocupar todo el ancho */
+@media (max-width: 992px) {
+    .cita-detail-modal {
+        inset: 0;
+        padding: 28px;
+    }
 }
 
 .cita-detail-backdrop {
@@ -615,7 +625,7 @@ body.cita-modal-open {
 .cita-detail-dialog {
     position: relative;
     width: min(1040px, 100%);
-    max-height: min(92vh, 920px);
+    max-height: min(88vh, 900px);
     overflow: hidden;
     border: 1px solid rgba(47, 224, 176, 0.2);
     border-radius: 28px;
@@ -658,7 +668,7 @@ body.cita-modal-open {
 }
 
 .cita-detail-content {
-    max-height: min(92vh, 920px);
+    max-height: min(88vh, 900px);
     overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(47, 224, 176, 0.36) transparent;
