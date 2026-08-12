@@ -177,7 +177,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                             <input type="checkbox" name="recordarme">
                             <span>Recordarme</span>
                         </label>
-                        <a href="#" class="login-forgot">¿Olvidaste tu contraseña?</a>
+                        <a href="<?= BASE_URL ?>/portal-recuperar-password.php" class="login-forgot">¿Olvidaste tu contraseña?</a>
                     </div>
 
                     <button type="submit" class="login-btn" id="loginBtn">
